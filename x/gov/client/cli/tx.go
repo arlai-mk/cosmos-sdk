@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"strings"
 
+	flag "github.com/spf13/pflag"
+
 	"github.com/spf13/cobra"
 
 	"github.com/cosmos/cosmos-sdk/client"
@@ -33,6 +35,13 @@ const (
 	FlagDescription = "description"
 	// Deprecated: only used for v1beta1 legacy proposals.
 	FlagProposalType = "type"
+
+	FlagMoniker         = "moniker"
+	FlagEditMoniker     = "new-moniker"
+	FlagIdentity        = "identity"
+	FlagWebsite         = "website"
+	FlagSecurityContact = "security-contact"
+	FlagDetails         = "details"
 )
 
 // ProposalFlags defines the core required fields of a legacy proposal. It is used to
@@ -72,6 +81,7 @@ func NewTxCmd(legacyPropCmds []*cobra.Command) *cobra.Command {
 		NewCmdSubmitProposal(),
 		NewCmdDraftProposal(),
 		NewCmdCancelProposal(),
+		NewCmdCreateRepresentative(),
 
 		// Deprecated
 		cmdSubmitLegacyProp,
@@ -405,4 +415,69 @@ $ %s tx gov weighted-vote 1 yes=0.6,no=0.3,abstain=0.05,no_with_veto=0.05 --from
 	flags.AddTxFlagsToCmd(cmd)
 
 	return cmd
+}
+
+// NewCmdCreateRepresentative implements creating a new Governance Representative
+func NewCmdCreateRepresentative() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "create-representative",
+		Short: "create new representative",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			msg, err := newBuildCreateRepresentativeMsg(clientCtx, cmd.Flags())
+			if err != nil {
+				return err
+			}
+
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
+		},
+	}
+
+	cmd.Flags().AddFlagSet(flagSetDescriptionCreate())
+	flags.AddTxFlagsToCmd(cmd)
+
+	_ = cmd.MarkFlagRequired(flags.FlagFrom)
+	_ = cmd.MarkFlagRequired(FlagMoniker)
+
+	return cmd
+}
+
+func newBuildCreateRepresentativeMsg(clientCtx client.Context, fs *flag.FlagSet) (*v1.MsgCreateRepresentative, error) {
+
+	repAddr := clientCtx.GetFromAddress()
+
+	moniker, _ := fs.GetString(FlagMoniker)
+	identity, _ := fs.GetString(FlagIdentity)
+	website, _ := fs.GetString(FlagWebsite)
+	details, _ := fs.GetString(FlagDetails)
+	description := v1.NewRepDescription(
+		moniker,
+		identity,
+		website,
+		details,
+	)
+
+	msg := v1.NewMsgCreateRepresentative(
+		repAddr, description,
+	)
+	if err := msg.ValidateBasic(); err != nil {
+		return nil, err
+	}
+
+	return msg, nil
+}
+
+func flagSetDescriptionCreate() *flag.FlagSet {
+	fs := flag.NewFlagSet("", flag.ContinueOnError)
+
+	fs.String(FlagMoniker, "", "The representative's name")
+	fs.String(FlagIdentity, "", "The optional identity signature (ex. UPort or Keybase)")
+	fs.String(FlagWebsite, "", "The representative's (optional) website")
+	fs.String(FlagDetails, "", "The representative's (optional) details")
+
+	return fs
 }

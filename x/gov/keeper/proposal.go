@@ -18,6 +18,12 @@ import (
 func (keeper Keeper) SubmitProposal(ctx sdk.Context, messages []sdk.Msg, metadata, title, summary string, proposer sdk.AccAddress, expedited bool) (v1.Proposal, error) {
 	err := keeper.assertMetadataLength(metadata)
 	if err != nil {
+		keeper.Logger(ctx).Error(
+			"proposal has too long metadata",
+			"metadata", metadata,
+			"length", uint64(len(metadata)),
+			"max_length", keeper.config.MaxMetadataLen,
+		)
 		return v1.Proposal{}, err
 	}
 

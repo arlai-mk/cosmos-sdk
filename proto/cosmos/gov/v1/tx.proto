@@ -43,6 +43,9 @@ service Msg {
   //
   // Since: cosmos-sdk 0.48
   rpc CancelProposal(MsgCancelProposal) returns (MsgCancelProposalResponse);
+
+  // CreateRepresentative defines a method for creating a new representative.
+  rpc CreateRepresentative(MsgCreateRepresentative) returns (MsgCreateRepresentativeResponse);
 }
 
 // MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
@@ -203,3 +206,17 @@ message MsgCancelProposalResponse {
   // canceled_height defines the block height at which the proposal is canceled.
   uint64 canceled_height = 3;
 }
+
+// MsgCreateRepresentative defines a SDK message for creating a new representative.
+message MsgCreateRepresentative {
+  option (cosmos.msg.v1.signer) = "representative_address";
+
+  option (gogoproto.equal)           = false;
+  option (gogoproto.goproto_getters) = false;
+
+  RepDescription description            = 1 [(gogoproto.nullable) = false];
+  string         representative_address = 2 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+}
+
+// MsgCreateRepresentativeResponse defines the Msg/CreateRepresentative response type.
+message MsgCreateRepresentativeResponse {}

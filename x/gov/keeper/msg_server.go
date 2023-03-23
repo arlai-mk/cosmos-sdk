@@ -229,6 +229,22 @@ func (k msgServer) UpdateParams(goCtx context.Context, msg *v1.MsgUpdateParams) 
 	return &v1.MsgUpdateParamsResponse{}, nil
 }
 
+func (k msgServer) CreateRepresentative(goCtx context.Context, msg *v1.MsgCreateRepresentative) (*v1.MsgCreateRepresentativeResponse, error) {
+	ctx := sdk.UnwrapSDKContext(goCtx)
+
+	// TODO: Write code for when we create a representative here
+	k.Logger(ctx).Error(
+		"We are creating a new representative",
+		"address", msg.RepresentativeAddress,
+		"moniker", msg.Description.Moniker,
+		"website", msg.Description.Website,
+		"identity", msg.Description.Identity,
+		"details", msg.Description.Details,
+	)
+
+	return &v1.MsgCreateRepresentativeResponse{}, nil
+}
+
 type legacyMsgServer struct {
 	govAcct string
 	server  v1.MsgServer

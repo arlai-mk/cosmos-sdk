@@ -21,13 +21,14 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Msg_SubmitProposal_FullMethodName    = "/cosmos.gov.v1.Msg/SubmitProposal"
-	Msg_ExecLegacyContent_FullMethodName = "/cosmos.gov.v1.Msg/ExecLegacyContent"
-	Msg_Vote_FullMethodName              = "/cosmos.gov.v1.Msg/Vote"
-	Msg_VoteWeighted_FullMethodName      = "/cosmos.gov.v1.Msg/VoteWeighted"
-	Msg_Deposit_FullMethodName           = "/cosmos.gov.v1.Msg/Deposit"
-	Msg_UpdateParams_FullMethodName      = "/cosmos.gov.v1.Msg/UpdateParams"
-	Msg_CancelProposal_FullMethodName    = "/cosmos.gov.v1.Msg/CancelProposal"
+	Msg_SubmitProposal_FullMethodName       = "/cosmos.gov.v1.Msg/SubmitProposal"
+	Msg_ExecLegacyContent_FullMethodName    = "/cosmos.gov.v1.Msg/ExecLegacyContent"
+	Msg_Vote_FullMethodName                 = "/cosmos.gov.v1.Msg/Vote"
+	Msg_VoteWeighted_FullMethodName         = "/cosmos.gov.v1.Msg/VoteWeighted"
+	Msg_Deposit_FullMethodName              = "/cosmos.gov.v1.Msg/Deposit"
+	Msg_UpdateParams_FullMethodName         = "/cosmos.gov.v1.Msg/UpdateParams"
+	Msg_CancelProposal_FullMethodName       = "/cosmos.gov.v1.Msg/CancelProposal"
+	Msg_CreateRepresentative_FullMethodName = "/cosmos.gov.v1.Msg/CreateRepresentative"
 )
 
 // MsgClient is the client API for Msg service.
@@ -54,6 +55,8 @@ type MsgClient interface {
 	//
 	// Since: cosmos-sdk 0.48
 	CancelProposal(ctx context.Context, in *MsgCancelProposal, opts ...grpc.CallOption) (*MsgCancelProposalResponse, error)
+	// CreateRepresentative defines a method for creating a new representative.
+	CreateRepresentative(ctx context.Context, in *MsgCreateRepresentative, opts ...grpc.CallOption) (*MsgCreateRepresentativeResponse, error)
 }
 
 type msgClient struct {
@@ -127,6 +130,15 @@ func (c *msgClient) CancelProposal(ctx context.Context, in *MsgCancelProposal, o
 	return out, nil
 }
 
+func (c *msgClient) CreateRepresentative(ctx context.Context, in *MsgCreateRepresentative, opts ...grpc.CallOption) (*MsgCreateRepresentativeResponse, error) {
+	out := new(MsgCreateRepresentativeResponse)
+	err := c.cc.Invoke(ctx, Msg_CreateRepresentative_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
@@ -151,6 +163,8 @@ type MsgServer interface {
 	//
 	// Since: cosmos-sdk 0.48
 	CancelProposal(context.Context, *MsgCancelProposal) (*MsgCancelProposalResponse, error)
+	// CreateRepresentative defines a method for creating a new representative.
+	CreateRepresentative(context.Context, *MsgCreateRepresentative) (*MsgCreateRepresentativeResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -178,6 +192,9 @@ func (UnimplementedMsgServer) UpdateParams(context.Context, *MsgUpdateParams) (*
 }
 func (UnimplementedMsgServer) CancelProposal(context.Context, *MsgCancelProposal) (*MsgCancelProposalResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelProposal not implemented")
+}
+func (UnimplementedMsgServer) CreateRepresentative(context.Context, *MsgCreateRepresentative) (*MsgCreateRepresentativeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRepresentative not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -318,6 +335,24 @@ func _Msg_CancelProposal_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateRepresentative_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateRepresentative)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateRepresentative(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_CreateRepresentative_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateRepresentative(ctx, req.(*MsgCreateRepresentative))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -352,6 +387,10 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CancelProposal",
 			Handler:    _Msg_CancelProposal_Handler,
+		},
+		{
+			MethodName: "CreateRepresentative",
+			Handler:    _Msg_CreateRepresentative_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

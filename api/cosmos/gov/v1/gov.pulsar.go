@@ -6843,6 +6843,1117 @@ func (x *fastReflection_Params) ProtoMethods() *protoiface.Methods {
 	}
 }
 
+var (
+	md_RepDescription          protoreflect.MessageDescriptor
+	fd_RepDescription_moniker  protoreflect.FieldDescriptor
+	fd_RepDescription_identity protoreflect.FieldDescriptor
+	fd_RepDescription_website  protoreflect.FieldDescriptor
+	fd_RepDescription_details  protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_gov_proto_init()
+	md_RepDescription = File_cosmos_gov_v1_gov_proto.Messages().ByName("RepDescription")
+	fd_RepDescription_moniker = md_RepDescription.Fields().ByName("moniker")
+	fd_RepDescription_identity = md_RepDescription.Fields().ByName("identity")
+	fd_RepDescription_website = md_RepDescription.Fields().ByName("website")
+	fd_RepDescription_details = md_RepDescription.Fields().ByName("details")
+}
+
+var _ protoreflect.Message = (*fastReflection_RepDescription)(nil)
+
+type fastReflection_RepDescription RepDescription
+
+func (x *RepDescription) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_RepDescription)(x)
+}
+
+func (x *RepDescription) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_gov_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_RepDescription_messageType fastReflection_RepDescription_messageType
+var _ protoreflect.MessageType = fastReflection_RepDescription_messageType{}
+
+type fastReflection_RepDescription_messageType struct{}
+
+func (x fastReflection_RepDescription_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_RepDescription)(nil)
+}
+func (x fastReflection_RepDescription_messageType) New() protoreflect.Message {
+	return new(fastReflection_RepDescription)
+}
+func (x fastReflection_RepDescription_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_RepDescription
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_RepDescription) Descriptor() protoreflect.MessageDescriptor {
+	return md_RepDescription
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_RepDescription) Type() protoreflect.MessageType {
+	return _fastReflection_RepDescription_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_RepDescription) New() protoreflect.Message {
+	return new(fastReflection_RepDescription)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_RepDescription) Interface() protoreflect.ProtoMessage {
+	return (*RepDescription)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_RepDescription) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Moniker != "" {
+		value := protoreflect.ValueOfString(x.Moniker)
+		if !f(fd_RepDescription_moniker, value) {
+			return
+		}
+	}
+	if x.Identity != "" {
+		value := protoreflect.ValueOfString(x.Identity)
+		if !f(fd_RepDescription_identity, value) {
+			return
+		}
+	}
+	if x.Website != "" {
+		value := protoreflect.ValueOfString(x.Website)
+		if !f(fd_RepDescription_website, value) {
+			return
+		}
+	}
+	if x.Details != "" {
+		value := protoreflect.ValueOfString(x.Details)
+		if !f(fd_RepDescription_details, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_RepDescription) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.RepDescription.moniker":
+		return x.Moniker != ""
+	case "cosmos.gov.v1.RepDescription.identity":
+		return x.Identity != ""
+	case "cosmos.gov.v1.RepDescription.website":
+		return x.Website != ""
+	case "cosmos.gov.v1.RepDescription.details":
+		return x.Details != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.RepDescription"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.RepDescription does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_RepDescription) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.RepDescription.moniker":
+		x.Moniker = ""
+	case "cosmos.gov.v1.RepDescription.identity":
+		x.Identity = ""
+	case "cosmos.gov.v1.RepDescription.website":
+		x.Website = ""
+	case "cosmos.gov.v1.RepDescription.details":
+		x.Details = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.RepDescription"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.RepDescription does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_RepDescription) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.RepDescription.moniker":
+		value := x.Moniker
+		return protoreflect.ValueOfString(value)
+	case "cosmos.gov.v1.RepDescription.identity":
+		value := x.Identity
+		return protoreflect.ValueOfString(value)
+	case "cosmos.gov.v1.RepDescription.website":
+		value := x.Website
+		return protoreflect.ValueOfString(value)
+	case "cosmos.gov.v1.RepDescription.details":
+		value := x.Details
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.RepDescription"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.RepDescription does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_RepDescription) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.RepDescription.moniker":
+		x.Moniker = value.Interface().(string)
+	case "cosmos.gov.v1.RepDescription.identity":
+		x.Identity = value.Interface().(string)
+	case "cosmos.gov.v1.RepDescription.website":
+		x.Website = value.Interface().(string)
+	case "cosmos.gov.v1.RepDescription.details":
+		x.Details = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.RepDescription"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.RepDescription does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_RepDescription) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.RepDescription.moniker":
+		panic(fmt.Errorf("field moniker of message cosmos.gov.v1.RepDescription is not mutable"))
+	case "cosmos.gov.v1.RepDescription.identity":
+		panic(fmt.Errorf("field identity of message cosmos.gov.v1.RepDescription is not mutable"))
+	case "cosmos.gov.v1.RepDescription.website":
+		panic(fmt.Errorf("field website of message cosmos.gov.v1.RepDescription is not mutable"))
+	case "cosmos.gov.v1.RepDescription.details":
+		panic(fmt.Errorf("field details of message cosmos.gov.v1.RepDescription is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.RepDescription"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.RepDescription does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_RepDescription) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.RepDescription.moniker":
+		return protoreflect.ValueOfString("")
+	case "cosmos.gov.v1.RepDescription.identity":
+		return protoreflect.ValueOfString("")
+	case "cosmos.gov.v1.RepDescription.website":
+		return protoreflect.ValueOfString("")
+	case "cosmos.gov.v1.RepDescription.details":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.RepDescription"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.RepDescription does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_RepDescription) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.RepDescription", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_RepDescription) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_RepDescription) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_RepDescription) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_RepDescription) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*RepDescription)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Moniker)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Identity)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Website)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.Details)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*RepDescription)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Details) > 0 {
+			i -= len(x.Details)
+			copy(dAtA[i:], x.Details)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Details)))
+			i--
+			dAtA[i] = 0x22
+		}
+		if len(x.Website) > 0 {
+			i -= len(x.Website)
+			copy(dAtA[i:], x.Website)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Website)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.Identity) > 0 {
+			i -= len(x.Identity)
+			copy(dAtA[i:], x.Identity)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Identity)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Moniker) > 0 {
+			i -= len(x.Moniker)
+			copy(dAtA[i:], x.Moniker)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Moniker)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*RepDescription)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: RepDescription: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: RepDescription: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Moniker", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Moniker = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Identity", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Identity = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Website", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Website = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 4:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Details", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Details = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_Representative                        protoreflect.MessageDescriptor
+	fd_Representative_representative_address protoreflect.FieldDescriptor
+	fd_Representative_description            protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_gov_proto_init()
+	md_Representative = File_cosmos_gov_v1_gov_proto.Messages().ByName("Representative")
+	fd_Representative_representative_address = md_Representative.Fields().ByName("representative_address")
+	fd_Representative_description = md_Representative.Fields().ByName("description")
+}
+
+var _ protoreflect.Message = (*fastReflection_Representative)(nil)
+
+type fastReflection_Representative Representative
+
+func (x *Representative) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_Representative)(x)
+}
+
+func (x *Representative) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_gov_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_Representative_messageType fastReflection_Representative_messageType
+var _ protoreflect.MessageType = fastReflection_Representative_messageType{}
+
+type fastReflection_Representative_messageType struct{}
+
+func (x fastReflection_Representative_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_Representative)(nil)
+}
+func (x fastReflection_Representative_messageType) New() protoreflect.Message {
+	return new(fastReflection_Representative)
+}
+func (x fastReflection_Representative_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_Representative
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_Representative) Descriptor() protoreflect.MessageDescriptor {
+	return md_Representative
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_Representative) Type() protoreflect.MessageType {
+	return _fastReflection_Representative_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_Representative) New() protoreflect.Message {
+	return new(fastReflection_Representative)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_Representative) Interface() protoreflect.ProtoMessage {
+	return (*Representative)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_Representative) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.RepresentativeAddress != "" {
+		value := protoreflect.ValueOfString(x.RepresentativeAddress)
+		if !f(fd_Representative_representative_address, value) {
+			return
+		}
+	}
+	if x.Description != nil {
+		value := protoreflect.ValueOfMessage(x.Description.ProtoReflect())
+		if !f(fd_Representative_description, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_Representative) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.Representative.representative_address":
+		return x.RepresentativeAddress != ""
+	case "cosmos.gov.v1.Representative.description":
+		return x.Description != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.Representative"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.Representative does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_Representative) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.Representative.representative_address":
+		x.RepresentativeAddress = ""
+	case "cosmos.gov.v1.Representative.description":
+		x.Description = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.Representative"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.Representative does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_Representative) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.Representative.representative_address":
+		value := x.RepresentativeAddress
+		return protoreflect.ValueOfString(value)
+	case "cosmos.gov.v1.Representative.description":
+		value := x.Description
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.Representative"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.Representative does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_Representative) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.Representative.representative_address":
+		x.RepresentativeAddress = value.Interface().(string)
+	case "cosmos.gov.v1.Representative.description":
+		x.Description = value.Message().Interface().(*RepDescription)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.Representative"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.Representative does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_Representative) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.Representative.description":
+		if x.Description == nil {
+			x.Description = new(RepDescription)
+		}
+		return protoreflect.ValueOfMessage(x.Description.ProtoReflect())
+	case "cosmos.gov.v1.Representative.representative_address":
+		panic(fmt.Errorf("field representative_address of message cosmos.gov.v1.Representative is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.Representative"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.Representative does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_Representative) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.Representative.representative_address":
+		return protoreflect.ValueOfString("")
+	case "cosmos.gov.v1.Representative.description":
+		m := new(RepDescription)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.Representative"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.Representative does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_Representative) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.Representative", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_Representative) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_Representative) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_Representative) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_Representative) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*Representative)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.RepresentativeAddress)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.Description != nil {
+			l = options.Size(x.Description)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*Representative)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Description != nil {
+			encoded, err := options.Marshal(x.Description)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.RepresentativeAddress) > 0 {
+			i -= len(x.RepresentativeAddress)
+			copy(dAtA[i:], x.RepresentativeAddress)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.RepresentativeAddress)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*Representative)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: Representative: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: Representative: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field RepresentativeAddress", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.RepresentativeAddress = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Description", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Description == nil {
+					x.Description = &RepDescription{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Description); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Since: cosmos-sdk 0.46
 
 // Code generated by protoc-gen-go. DO NOT EDIT.
@@ -7708,6 +8819,116 @@ func (x *Params) GetBurnVoteVeto() bool {
 	return false
 }
 
+// RepDescription defines a representative description.
+type RepDescription struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// moniker defines a human-readable name for the representative.
+	Moniker string `protobuf:"bytes,1,opt,name=moniker,proto3" json:"moniker,omitempty"`
+	// identity defines an optional identity signature (ex. UPort or Keybase).
+	Identity string `protobuf:"bytes,2,opt,name=identity,proto3" json:"identity,omitempty"`
+	// website defines an optional website link.
+	Website string `protobuf:"bytes,3,opt,name=website,proto3" json:"website,omitempty"`
+	// details define other optional details.
+	Details string `protobuf:"bytes,4,opt,name=details,proto3" json:"details,omitempty"`
+}
+
+func (x *RepDescription) Reset() {
+	*x = RepDescription{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_gov_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RepDescription) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RepDescription) ProtoMessage() {}
+
+// Deprecated: Use RepDescription.ProtoReflect.Descriptor instead.
+func (*RepDescription) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_gov_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *RepDescription) GetMoniker() string {
+	if x != nil {
+		return x.Moniker
+	}
+	return ""
+}
+
+func (x *RepDescription) GetIdentity() string {
+	if x != nil {
+		return x.Identity
+	}
+	return ""
+}
+
+func (x *RepDescription) GetWebsite() string {
+	if x != nil {
+		return x.Website
+	}
+	return ""
+}
+
+func (x *RepDescription) GetDetails() string {
+	if x != nil {
+		return x.Details
+	}
+	return ""
+}
+
+// Representative defines a representative
+type Representative struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// representative_address defines the address of the validator's operator; bech encoded in JSON.
+	RepresentativeAddress string `protobuf:"bytes,1,opt,name=representative_address,json=representativeAddress,proto3" json:"representative_address,omitempty"`
+	// description defines the description terms for the validator.
+	Description *RepDescription `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+}
+
+func (x *Representative) Reset() {
+	*x = Representative{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_gov_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Representative) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Representative) ProtoMessage() {}
+
+// Deprecated: Use Representative.ProtoReflect.Descriptor instead.
+func (*Representative) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_gov_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *Representative) GetRepresentativeAddress() string {
+	if x != nil {
+		return x.RepresentativeAddress
+	}
+	return ""
+}
+
+func (x *Representative) GetDescription() *RepDescription {
+	if x != nil {
+		return x.Description
+	}
+	return nil
+}
+
 var File_cosmos_gov_v1_gov_proto protoreflect.FileDescriptor
 
 var file_cosmos_gov_v1_gov_proto_rawDesc = []byte{
@@ -7905,7 +9126,27 @@ var file_cosmos_gov_v1_gov_proto_rawDesc = []byte{
 	0x70, 0x6f, 0x73, 0x69, 0x74, 0x50, 0x72, 0x65, 0x76, 0x6f, 0x74, 0x65, 0x12, 0x24, 0x0a, 0x0e,
 	0x62, 0x75, 0x72, 0x6e, 0x5f, 0x76, 0x6f, 0x74, 0x65, 0x5f, 0x76, 0x65, 0x74, 0x6f, 0x18, 0x0f,
 	0x20, 0x01, 0x28, 0x08, 0x52, 0x0c, 0x62, 0x75, 0x72, 0x6e, 0x56, 0x6f, 0x74, 0x65, 0x56, 0x65,
-	0x74, 0x6f, 0x2a, 0x89, 0x01, 0x0a, 0x0a, 0x56, 0x6f, 0x74, 0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f,
+	0x74, 0x6f, 0x22, 0x84, 0x01, 0x0a, 0x0e, 0x52, 0x65, 0x70, 0x44, 0x65, 0x73, 0x63, 0x72, 0x69,
+	0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x6f, 0x6e, 0x69, 0x6b, 0x65, 0x72,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x6f, 0x6e, 0x69, 0x6b, 0x65, 0x72, 0x12,
+	0x1a, 0x0a, 0x08, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x08, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x12, 0x18, 0x0a, 0x07, 0x77,
+	0x65, 0x62, 0x73, 0x69, 0x74, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x77, 0x65,
+	0x62, 0x73, 0x69, 0x74, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x64, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73,
+	0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x64, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x3a,
+	0x08, 0x98, 0xa0, 0x1f, 0x00, 0xe8, 0xa0, 0x1f, 0x01, 0x22, 0xb6, 0x01, 0x0a, 0x0e, 0x52, 0x65,
+	0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x12, 0x4f, 0x0a, 0x16,
+	0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x61,
+	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4,
+	0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x15, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e,
+	0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x45, 0x0a,
+	0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e,
+	0x76, 0x31, 0x2e, 0x52, 0x65, 0x70, 0x44, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f,
+	0x6e, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70,
+	0x74, 0x69, 0x6f, 0x6e, 0x3a, 0x0c, 0x88, 0xa0, 0x1f, 0x00, 0x98, 0xa0, 0x1f, 0x00, 0xe8, 0xa0,
+	0x1f, 0x00, 0x2a, 0x89, 0x01, 0x0a, 0x0a, 0x56, 0x6f, 0x74, 0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f,
 	0x6e, 0x12, 0x1b, 0x0a, 0x17, 0x56, 0x4f, 0x54, 0x45, 0x5f, 0x4f, 0x50, 0x54, 0x49, 0x4f, 0x4e,
 	0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x13,
 	0x0a, 0x0f, 0x56, 0x4f, 0x54, 0x45, 0x5f, 0x4f, 0x50, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x59, 0x45,
@@ -7953,7 +9194,7 @@ func file_cosmos_gov_v1_gov_proto_rawDescGZIP() []byte {
 }
 
 var file_cosmos_gov_v1_gov_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_cosmos_gov_v1_gov_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_cosmos_gov_v1_gov_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_cosmos_gov_v1_gov_proto_goTypes = []interface{}{
 	(VoteOption)(0),               // 0: cosmos.gov.v1.VoteOption
 	(ProposalStatus)(0),           // 1: cosmos.gov.v1.ProposalStatus
@@ -7966,36 +9207,39 @@ var file_cosmos_gov_v1_gov_proto_goTypes = []interface{}{
 	(*VotingParams)(nil),          // 8: cosmos.gov.v1.VotingParams
 	(*TallyParams)(nil),           // 9: cosmos.gov.v1.TallyParams
 	(*Params)(nil),                // 10: cosmos.gov.v1.Params
-	(*v1beta1.Coin)(nil),          // 11: cosmos.base.v1beta1.Coin
-	(*anypb.Any)(nil),             // 12: google.protobuf.Any
-	(*timestamppb.Timestamp)(nil), // 13: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),   // 14: google.protobuf.Duration
+	(*RepDescription)(nil),        // 11: cosmos.gov.v1.RepDescription
+	(*Representative)(nil),        // 12: cosmos.gov.v1.Representative
+	(*v1beta1.Coin)(nil),          // 13: cosmos.base.v1beta1.Coin
+	(*anypb.Any)(nil),             // 14: google.protobuf.Any
+	(*timestamppb.Timestamp)(nil), // 15: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),   // 16: google.protobuf.Duration
 }
 var file_cosmos_gov_v1_gov_proto_depIdxs = []int32{
 	0,  // 0: cosmos.gov.v1.WeightedVoteOption.option:type_name -> cosmos.gov.v1.VoteOption
-	11, // 1: cosmos.gov.v1.Deposit.amount:type_name -> cosmos.base.v1beta1.Coin
-	12, // 2: cosmos.gov.v1.Proposal.messages:type_name -> google.protobuf.Any
+	13, // 1: cosmos.gov.v1.Deposit.amount:type_name -> cosmos.base.v1beta1.Coin
+	14, // 2: cosmos.gov.v1.Proposal.messages:type_name -> google.protobuf.Any
 	1,  // 3: cosmos.gov.v1.Proposal.status:type_name -> cosmos.gov.v1.ProposalStatus
 	5,  // 4: cosmos.gov.v1.Proposal.final_tally_result:type_name -> cosmos.gov.v1.TallyResult
-	13, // 5: cosmos.gov.v1.Proposal.submit_time:type_name -> google.protobuf.Timestamp
-	13, // 6: cosmos.gov.v1.Proposal.deposit_end_time:type_name -> google.protobuf.Timestamp
-	11, // 7: cosmos.gov.v1.Proposal.total_deposit:type_name -> cosmos.base.v1beta1.Coin
-	13, // 8: cosmos.gov.v1.Proposal.voting_start_time:type_name -> google.protobuf.Timestamp
-	13, // 9: cosmos.gov.v1.Proposal.voting_end_time:type_name -> google.protobuf.Timestamp
+	15, // 5: cosmos.gov.v1.Proposal.submit_time:type_name -> google.protobuf.Timestamp
+	15, // 6: cosmos.gov.v1.Proposal.deposit_end_time:type_name -> google.protobuf.Timestamp
+	13, // 7: cosmos.gov.v1.Proposal.total_deposit:type_name -> cosmos.base.v1beta1.Coin
+	15, // 8: cosmos.gov.v1.Proposal.voting_start_time:type_name -> google.protobuf.Timestamp
+	15, // 9: cosmos.gov.v1.Proposal.voting_end_time:type_name -> google.protobuf.Timestamp
 	2,  // 10: cosmos.gov.v1.Vote.options:type_name -> cosmos.gov.v1.WeightedVoteOption
-	11, // 11: cosmos.gov.v1.DepositParams.min_deposit:type_name -> cosmos.base.v1beta1.Coin
-	14, // 12: cosmos.gov.v1.DepositParams.max_deposit_period:type_name -> google.protobuf.Duration
-	14, // 13: cosmos.gov.v1.VotingParams.voting_period:type_name -> google.protobuf.Duration
-	11, // 14: cosmos.gov.v1.Params.min_deposit:type_name -> cosmos.base.v1beta1.Coin
-	14, // 15: cosmos.gov.v1.Params.max_deposit_period:type_name -> google.protobuf.Duration
-	14, // 16: cosmos.gov.v1.Params.voting_period:type_name -> google.protobuf.Duration
-	14, // 17: cosmos.gov.v1.Params.expedited_voting_period:type_name -> google.protobuf.Duration
-	11, // 18: cosmos.gov.v1.Params.expedited_min_deposit:type_name -> cosmos.base.v1beta1.Coin
-	19, // [19:19] is the sub-list for method output_type
-	19, // [19:19] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	13, // 11: cosmos.gov.v1.DepositParams.min_deposit:type_name -> cosmos.base.v1beta1.Coin
+	16, // 12: cosmos.gov.v1.DepositParams.max_deposit_period:type_name -> google.protobuf.Duration
+	16, // 13: cosmos.gov.v1.VotingParams.voting_period:type_name -> google.protobuf.Duration
+	13, // 14: cosmos.gov.v1.Params.min_deposit:type_name -> cosmos.base.v1beta1.Coin
+	16, // 15: cosmos.gov.v1.Params.max_deposit_period:type_name -> google.protobuf.Duration
+	16, // 16: cosmos.gov.v1.Params.voting_period:type_name -> google.protobuf.Duration
+	16, // 17: cosmos.gov.v1.Params.expedited_voting_period:type_name -> google.protobuf.Duration
+	13, // 18: cosmos.gov.v1.Params.expedited_min_deposit:type_name -> cosmos.base.v1beta1.Coin
+	11, // 19: cosmos.gov.v1.Representative.description:type_name -> cosmos.gov.v1.RepDescription
+	20, // [20:20] is the sub-list for method output_type
+	20, // [20:20] is the sub-list for method input_type
+	20, // [20:20] is the sub-list for extension type_name
+	20, // [20:20] is the sub-list for extension extendee
+	0,  // [0:20] is the sub-list for field type_name
 }
 
 func init() { file_cosmos_gov_v1_gov_proto_init() }
@@ -8112,6 +9356,30 @@ func file_cosmos_gov_v1_gov_proto_init() {
 				return nil
 			}
 		}
+		file_cosmos_gov_v1_gov_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RepDescription); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cosmos_gov_v1_gov_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Representative); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -8119,7 +9387,7 @@ func file_cosmos_gov_v1_gov_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_cosmos_gov_v1_gov_proto_rawDesc,
 			NumEnums:      2,
-			NumMessages:   9,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

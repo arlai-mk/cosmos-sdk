@@ -337,3 +337,37 @@ func (msg MsgCancelProposal) GetSigners() []sdk.AccAddress {
 	proposer, _ := sdk.AccAddressFromBech32(msg.Proposer)
 	return []sdk.AccAddress{proposer}
 }
+
+// NewMsgCreateRepresentative creates a new MsgCreateRepresentative instance.
+// Delegator address and validator address are the same.
+func NewMsgCreateRepresentative(
+	repAddr sdk.AccAddress,
+	description RepDescription,
+) *MsgCreateRepresentative {
+	return &MsgCreateRepresentative{
+		Description:           description,
+		RepresentativeAddress: repAddr.String(),
+	}
+}
+
+// GetSignBytes implements Msg
+func (msg MsgCreateRepresentative) GetSignBytes() []byte {
+	bz := codec.ModuleCdc.MustMarshalJSON(&msg)
+	return sdk.MustSortJSON(bz)
+}
+
+// GetSigners implements Msg
+func (msg MsgCreateRepresentative) GetSigners() []sdk.AccAddress {
+	representative, _ := sdk.AccAddressFromBech32(msg.RepresentativeAddress)
+	return []sdk.AccAddress{representative}
+}
+
+// ValidateBasic implements Msg
+func (msg MsgCreateRepresentative) ValidateBasic() error {
+	_, err := sdk.AccAddressFromBech32(msg.RepresentativeAddress)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
