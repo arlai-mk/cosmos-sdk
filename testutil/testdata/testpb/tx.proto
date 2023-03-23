@@ -18,8 +18,8 @@ service Msg {
 message MsgCreateDog {
   option (cosmos.msg.v1.signer) = "owner";
 
-  testpb.Dog dog = 1;
-  string owner   = 2;
+  testpb.Dog dog   = 1;
+  string     owner = 2;
 }
 
 message MsgCreateDogResponse {
