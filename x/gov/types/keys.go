@@ -38,6 +38,16 @@ const (
 // - 0x20<proposalID_Bytes><voterAddrLen (1 Byte)><voterAddr_Bytes>: Voter
 //
 // - 0x30: Params
+//
+// - 0x40<representativeID_Bytes>: Representative
+//
+// - 0x41: nextRepresentativeID
+//
+// - 0x42<representativeAddrLen (1 Byte)><representativeAddr_Bytes>: RepresentativeID
+//
+// - 0x43<representativeID_Bytes><validatorAddrLen (1 Byte)><validatorAddr_Bytes>: VotingPower
+//
+// - 0x44<delegatorAddrLen (1 Byte)><delegatorAddr_Bytes><representativeID_Bytes>: VotingPowerShare
 var (
 	ProposalsKeyPrefix            = []byte{0x00}
 	ActiveProposalQueuePrefix     = []byte{0x01}
@@ -51,6 +61,14 @@ var (
 
 	// ParamsKey is the key to query all gov params
 	ParamsKey = []byte{0x30}
+
+	RepresentativesKeyPrefix          = []byte{0x40}
+	RepresentativeIDKey               = []byte{0x41}
+	RepresentativeIDByAddrIndexPrefix = []byte{0x42}
+
+	VotingPowersKeyPrefix = []byte{0x43}
+
+	VotingPowerSharesKeyPrefix = []byte{0x44}
 
 	// KeyConstitution is the key string used to store the chain's constitution
 	KeyConstitution = []byte("constitution")
@@ -171,4 +189,45 @@ func splitKeyWithAddress(key []byte) (proposalID uint64, addr sdk.AccAddress) {
 	kv.AssertKeyAtLeastLength(key, 11)
 	addr = sdk.AccAddress(key[10:])
 	return
+}
+
+// GetRepresentativeIDBytes returns the byte representation of the representativeID
+func GetRepresentativeIDBytes(representativeID uint64) (representativeIDBz []byte) {
+	representativeIDBz = make([]byte, 8)
+	binary.BigEndian.PutUint64(representativeIDBz, representativeID)
+	return
+}
+
+// GetRepresentativeIDFromBytes returns representativeID in uint64 format from a byte array
+func GetRepresentativeIDFromBytes(bz []byte) (representativeID uint64) {
+	return binary.BigEndian.Uint64(bz)
+}
+
+// RepresentativeKey gets a specific representative from the store
+func RepresentativeKey(representativeID uint64) []byte {
+	return append(RepresentativesKeyPrefix, GetRepresentativeIDBytes(representativeID)...)
+}
+
+func RepresentativeIDByAddrKey(representativeAddr sdk.AccAddress) []byte {
+	return append(RepresentativeIDByAddrIndexPrefix, address.MustLengthPrefix(representativeAddr.Bytes())...)
+}
+
+// VotingPowersKey gets the first part of the voting powers key based on the representativeID
+func VotingPowersKey(representativeID uint64) []byte {
+	return append(VotingPowersKeyPrefix, GetRepresentativeIDBytes(representativeID)...)
+}
+
+// VotingPowerKey key of a specific voting power from the store
+func VotingPowerKey(representativeID uint64, validatorAddr sdk.ValAddress) []byte {
+	return append(VotingPowersKey(representativeID), address.MustLengthPrefix(validatorAddr.Bytes())...)
+}
+
+// VotingPowerSharesKey gets the first part of the voting power shares key based on the delegatorAddr
+func VotingPowerSharesKey(delegatorAddr sdk.AccAddress) []byte {
+	return append(VotingPowerSharesKeyPrefix, address.MustLengthPrefix(delegatorAddr.Bytes())...)
+}
+
+// VotingPowerShareKey key of a specific voting power share from the store
+func VotingPowerShareKey(delegatorAddr sdk.AccAddress, representativeID uint64) []byte {
+	return append(VotingPowerSharesKey(delegatorAddr), GetRepresentativeIDBytes(representativeID)...)
 }

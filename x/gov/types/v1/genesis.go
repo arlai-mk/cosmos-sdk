@@ -7,10 +7,11 @@ import (
 )
 
 // NewGenesisState creates a new genesis state for the governance module
-func NewGenesisState(startingProposalID uint64, params Params) *GenesisState {
+func NewGenesisState(startingProposalID uint64, startingRepresentativeID uint64, params Params) *GenesisState {
 	return &GenesisState{
-		StartingProposalId: startingProposalID,
-		Params:             &params,
+		StartingProposalId:       startingProposalID,
+		StartingRepresentativeId: startingRepresentativeID,
+		Params:                   &params,
 	}
 }
 
@@ -18,19 +19,24 @@ func NewGenesisState(startingProposalID uint64, params Params) *GenesisState {
 func DefaultGenesisState() *GenesisState {
 	return NewGenesisState(
 		DefaultStartingProposalID,
+		DefaultStartingRepresentativeID,
 		DefaultParams(),
 	)
 }
 
 // Empty returns true if a GenesisState is empty
 func (data GenesisState) Empty() bool {
-	return data.StartingProposalId == 0 || data.Params == nil
+	return data.StartingProposalId == 0 || data.StartingRepresentativeId == 0 || data.Params == nil
 }
 
 // ValidateGenesis checks if parameters are within valid ranges
 func ValidateGenesis(data *GenesisState) error {
 	if data.StartingProposalId == 0 {
 		return errors.New("starting proposal id must be greater than 0")
+	}
+
+	if data.StartingRepresentativeId == 0 {
+		return errors.New("starting representative id must be greater than 0")
 	}
 
 	return data.Params.ValidateBasic()

@@ -14,6 +14,7 @@ func InitGenesis(ctx sdk.Context, ak types.AccountKeeper, bk types.BankKeeper, k
 	k.SetProposalID(ctx, data.StartingProposalId)
 	k.SetParams(ctx, *data.Params)
 	k.SetConstitution(ctx, data.Constitution)
+	k.SetRepresentativeID(ctx, data.StartingRepresentativeId)
 
 	// check if the deposits pool account exists
 	moduleAcc := k.GetGovernanceAccount(ctx)
@@ -41,6 +42,13 @@ func InitGenesis(ctx sdk.Context, ak types.AccountKeeper, bk types.BankKeeper, k
 		k.SetProposal(ctx, *proposal)
 	}
 
+	for _, representative := range data.Representatives {
+		representativeID, _ := k.SetRepresentative(ctx, *representative)
+
+		// Manually set indices for the first time
+		k.SetRepresentativeIDByAddr(ctx, representativeID, *representative)
+	}
+
 	// if account has zero balance it probably means it's not set, so we set it
 	balance := bk.GetAllBalances(ctx, moduleAcc.GetAddress())
 	if balance.IsZero() {
@@ -58,6 +66,8 @@ func ExportGenesis(ctx sdk.Context, k *keeper.Keeper) *v1.GenesisState {
 	startingProposalID, _ := k.GetProposalID(ctx)
 	proposals := k.GetProposals(ctx)
 	constitution := k.GetConstitution(ctx)
+	startingRepresentativeID, _ := k.GetRepresentativeID(ctx)
+	representatives := k.GetAllRepresentatives(ctx)
 	params := k.GetParams(ctx)
 
 	var proposalsDeposits v1.Deposits
@@ -71,11 +81,13 @@ func ExportGenesis(ctx sdk.Context, k *keeper.Keeper) *v1.GenesisState {
 	}
 
 	return &v1.GenesisState{
-		StartingProposalId: startingProposalID,
-		Deposits:           proposalsDeposits,
-		Votes:              proposalsVotes,
-		Proposals:          proposals,
-		Params:             &params,
-		Constitution:       constitution,
+		StartingProposalId:       startingProposalID,
+		Deposits:                 proposalsDeposits,
+		Votes:                    proposalsVotes,
+		Proposals:                proposals,
+		Params:                   &params,
+		Constitution:             constitution,
+		StartingRepresentativeId: startingRepresentativeID,
+		Representatives:          representatives,
 	}
 }

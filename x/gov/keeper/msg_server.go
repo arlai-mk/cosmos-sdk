@@ -242,6 +242,34 @@ func (k msgServer) CreateRepresentative(goCtx context.Context, msg *v1.MsgCreate
 		"details", msg.Description.Details,
 	)
 
+	repAddr, err := sdk.AccAddressFromBech32(msg.RepresentativeAddress)
+	if err != nil {
+		return nil, err
+	}
+
+	// First check if a Representative already exists with this address
+	_, found := k.Keeper.GetRepresentativeByAddr(ctx, repAddr)
+	if found {
+		k.Logger(ctx).Error("The representative address already exists")
+		return nil, govtypes.ErrRepresentativeAlreadyExists
+	}
+
+	// If not, then create a Representative
+	representative, err := v1.NewRepresentative(repAddr, msg.Description)
+	if err != nil {
+		return nil, err
+	}
+
+	// Then save it and update the next Representative ID in the store
+	representativeID, err := k.SetRepresentative(ctx, representative)
+	if err != nil {
+		k.Logger(ctx).Error("Error while storing the representative", "error", err.Error())
+		return &v1.MsgCreateRepresentativeResponse{}, err
+	}
+
+	// Also update the Representative ID by address in the store
+	k.SetRepresentativeIDByAddr(ctx, representativeID, representative)
+
 	return &v1.MsgCreateRepresentativeResponse{}, nil
 }
 

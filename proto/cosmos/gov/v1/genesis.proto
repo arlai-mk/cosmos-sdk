@@ -37,4 +37,8 @@ message GenesisState {
   //
   // Since: cosmos-sdk 0.48
   string constitution = 9;
+  // starting_representative_id is the ID of the starting representative.
+  uint64 starting_representative_id = 10;
+  // representatives defines all the representatives present at genesis.
+  repeated Representative representatives = 11;
 }

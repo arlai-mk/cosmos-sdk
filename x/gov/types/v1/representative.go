@@ -8,6 +8,9 @@ import (
 )
 
 const (
+	// DefaultStartingRepresentativeID is 1
+	DefaultStartingRepresentativeID uint64 = 1
+
 	// TODO: Why can't we just have one string description which can be JSON by convention
 	MaxMonikerLength  = 70
 	MaxIdentityLength = 3000
@@ -32,6 +35,9 @@ func NewRepresentative(repAddr sdk.AccAddress, description RepDescription) (Repr
 		Description:           description,
 	}, nil
 }
+
+// Representatives is a collection of Representative objects
+type Representatives []*Representative
 
 // String implements the Stringer interface for a Representative object.
 func (r Representative) String() string {
@@ -75,4 +81,25 @@ func (r Representative) GetRepAddress() sdk.AccAddress {
 		return nil
 	}
 	return sdk.MustAccAddressFromBech32(r.RepresentativeAddress)
+}
+
+// return the representative as store value
+func MustMarshalRepresentative(cdc codec.BinaryCodec, representative *Representative) []byte {
+	return cdc.MustMarshal(representative)
+}
+
+// unmarshal a representative from a store value
+func MustUnmarshalRepresentative(cdc codec.BinaryCodec, value []byte) Representative {
+	representative, err := UnmarshalRepresentative(cdc, value)
+	if err != nil {
+		panic(err)
+	}
+
+	return representative
+}
+
+// unmarshal a representative from a store value
+func UnmarshalRepresentative(cdc codec.BinaryCodec, value []byte) (r Representative, err error) {
+	err = cdc.Unmarshal(value, &r)
+	return r, err
 }
