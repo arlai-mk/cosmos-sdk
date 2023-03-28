@@ -39,6 +39,8 @@ func GetQueryCmd() *cobra.Command {
 		GetCmdQueryDeposits(),
 		GetCmdQueryTally(),
 		GetCmdConstitution(),
+		GetCmdQueryRepresentative(),
+		GetCmdQueryRepresentatives(),
 	)
 
 	return govQueryCmd
@@ -674,4 +676,92 @@ func GetCmdConstitution() *cobra.Command {
 			return clientCtx.PrintProto(resp)
 		},
 	}
+}
+
+// GetCmdQueryRepresentative implements the representative query command.
+func GetCmdQueryRepresentative() *cobra.Command {
+	bech32PrefixAddr := sdk.GetConfig().GetBech32AccountAddrPrefix()
+
+	cmd := &cobra.Command{
+		Use:   "representative [representative-addr]",
+		Short: "Query a representative",
+		Long: strings.TrimSpace(
+			fmt.Sprintf(`Query details about an individual representative.
+
+Example:
+$ %s query gov representative %s1gghjut3ccd8ay0zduzj64hwre2fxs9ldmqhffj
+`,
+				version.AppName, bech32PrefixAddr,
+			),
+		),
+		Args: cobra.ExactArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientQueryContext(cmd)
+			if err != nil {
+				return err
+			}
+			queryClient := v1.NewQueryClient(clientCtx)
+
+			addr, err := sdk.AccAddressFromBech32(args[0])
+			if err != nil {
+				return err
+			}
+
+			params := &v1.QueryRepresentativeRequest{RepAddr: addr.String()}
+			res, err := queryClient.Representative(cmd.Context(), params)
+			if err != nil {
+				return err
+			}
+
+			return clientCtx.PrintProto(&res.Validator)
+		},
+	}
+
+	flags.AddQueryFlagsToCmd(cmd)
+
+	return cmd
+}
+
+// GetCmdQueryRepresentatives implements the query all representatives command.
+func GetCmdQueryRepresentatives() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "representatives",
+		Short: "Query for all representatives",
+		Args:  cobra.NoArgs,
+		Long: strings.TrimSpace(
+			fmt.Sprintf(`Query details about all representatives on a network.
+
+Example:
+$ %s query gov representatives
+`,
+				version.AppName,
+			),
+		),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientQueryContext(cmd)
+			if err != nil {
+				return err
+			}
+			queryClient := v1.NewQueryClient(clientCtx)
+			pageReq, err := client.ReadPageRequest(cmd.Flags())
+			if err != nil {
+				return err
+			}
+
+			result, err := queryClient.Representatives(cmd.Context(), &types.QueryRepresentativesRequest{
+				// Leaving status empty on purpose to query all representatives.
+				Pagination: pageReq,
+			})
+			if err != nil {
+				return err
+			}
+
+			return clientCtx.PrintProto(result)
+		},
+	}
+
+	flags.AddQueryFlagsToCmd(cmd)
+	flags.AddPaginationFlagsToCmd(cmd, "representatives")
+
+	return cmd
 }

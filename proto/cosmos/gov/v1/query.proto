@@ -56,6 +56,17 @@ service Query {
   rpc TallyResult(QueryTallyResultRequest) returns (QueryTallyResultResponse) {
     option (google.api.http).get = "/cosmos/gov/v1/proposals/{proposal_id}/tally";
   }
+
+  // Representatives queries all representatives in the chain.
+  rpc Representatives(QueryRepresentativesRequest) returns (QueryRepresentativesResponse) {
+    option (google.api.http).get = "/cosmos/gov/v1/representatives";
+  }
+
+  // Representative queries representative info for given representative address.
+  rpc Representative(QueryRepresentativeRequest) returns (QueryRepresentativeResponse) {
+    option (google.api.http).get = "/cosmos/gov/v1/representatives/{representative_addr}";
+  }
+
 }
 
 // QueryConstitutionRequest is the request type for the Query/Constitution RPC method
@@ -203,4 +214,31 @@ message QueryTallyResultRequest {
 message QueryTallyResultResponse {
   // tally defines the requested tally.
   TallyResult tally = 1;
+}
+
+// QueryRepresentativesRequest is request type for Query/Representatives RPC method.
+message QueryRepresentativesRequest {
+  // pagination defines an optional pagination for the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryRepresentativesResponse is response type for the Query/Representatives RPC method
+message QueryRepresentativesResponse {
+  // Representatives contains all the queried Representatives.
+  repeated Representative representatives = 1;
+
+  // pagination defines the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// QueryRepresentativeRequest is response type for the Query/Representative RPC method
+message QueryRepresentativeRequest {
+  // representative_addr defines the representative address to query for.
+  string representative_addr = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+}
+
+// QueryRepresentativeResponse is response type for the Query/Representative RPC method
+message QueryRepresentativeResponse {
+  // representative defines the representative info.
+  Representative representative = 1;
 }

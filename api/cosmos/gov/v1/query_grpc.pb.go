@@ -21,15 +21,17 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Query_Constitution_FullMethodName = "/cosmos.gov.v1.Query/Constitution"
-	Query_Proposal_FullMethodName     = "/cosmos.gov.v1.Query/Proposal"
-	Query_Proposals_FullMethodName    = "/cosmos.gov.v1.Query/Proposals"
-	Query_Vote_FullMethodName         = "/cosmos.gov.v1.Query/Vote"
-	Query_Votes_FullMethodName        = "/cosmos.gov.v1.Query/Votes"
-	Query_Params_FullMethodName       = "/cosmos.gov.v1.Query/Params"
-	Query_Deposit_FullMethodName      = "/cosmos.gov.v1.Query/Deposit"
-	Query_Deposits_FullMethodName     = "/cosmos.gov.v1.Query/Deposits"
-	Query_TallyResult_FullMethodName  = "/cosmos.gov.v1.Query/TallyResult"
+	Query_Constitution_FullMethodName    = "/cosmos.gov.v1.Query/Constitution"
+	Query_Proposal_FullMethodName        = "/cosmos.gov.v1.Query/Proposal"
+	Query_Proposals_FullMethodName       = "/cosmos.gov.v1.Query/Proposals"
+	Query_Vote_FullMethodName            = "/cosmos.gov.v1.Query/Vote"
+	Query_Votes_FullMethodName           = "/cosmos.gov.v1.Query/Votes"
+	Query_Params_FullMethodName          = "/cosmos.gov.v1.Query/Params"
+	Query_Deposit_FullMethodName         = "/cosmos.gov.v1.Query/Deposit"
+	Query_Deposits_FullMethodName        = "/cosmos.gov.v1.Query/Deposits"
+	Query_TallyResult_FullMethodName     = "/cosmos.gov.v1.Query/TallyResult"
+	Query_Representatives_FullMethodName = "/cosmos.gov.v1.Query/Representatives"
+	Query_Representative_FullMethodName  = "/cosmos.gov.v1.Query/Representative"
 )
 
 // QueryClient is the client API for Query service.
@@ -54,6 +56,10 @@ type QueryClient interface {
 	Deposits(ctx context.Context, in *QueryDepositsRequest, opts ...grpc.CallOption) (*QueryDepositsResponse, error)
 	// TallyResult queries the tally of a proposal vote.
 	TallyResult(ctx context.Context, in *QueryTallyResultRequest, opts ...grpc.CallOption) (*QueryTallyResultResponse, error)
+	// Representatives queries all representatives in the chain.
+	Representatives(ctx context.Context, in *QueryRepresentativesRequest, opts ...grpc.CallOption) (*QueryRepresentativesResponse, error)
+	// Representative queries representative info for given representative address.
+	Representative(ctx context.Context, in *QueryRepresentativeRequest, opts ...grpc.CallOption) (*QueryRepresentativeResponse, error)
 }
 
 type queryClient struct {
@@ -145,6 +151,24 @@ func (c *queryClient) TallyResult(ctx context.Context, in *QueryTallyResultReque
 	return out, nil
 }
 
+func (c *queryClient) Representatives(ctx context.Context, in *QueryRepresentativesRequest, opts ...grpc.CallOption) (*QueryRepresentativesResponse, error) {
+	out := new(QueryRepresentativesResponse)
+	err := c.cc.Invoke(ctx, Query_Representatives_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) Representative(ctx context.Context, in *QueryRepresentativeRequest, opts ...grpc.CallOption) (*QueryRepresentativeResponse, error) {
+	out := new(QueryRepresentativeResponse)
+	err := c.cc.Invoke(ctx, Query_Representative_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -167,6 +191,10 @@ type QueryServer interface {
 	Deposits(context.Context, *QueryDepositsRequest) (*QueryDepositsResponse, error)
 	// TallyResult queries the tally of a proposal vote.
 	TallyResult(context.Context, *QueryTallyResultRequest) (*QueryTallyResultResponse, error)
+	// Representatives queries all representatives in the chain.
+	Representatives(context.Context, *QueryRepresentativesRequest) (*QueryRepresentativesResponse, error)
+	// Representative queries representative info for given representative address.
+	Representative(context.Context, *QueryRepresentativeRequest) (*QueryRepresentativeResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -200,6 +228,12 @@ func (UnimplementedQueryServer) Deposits(context.Context, *QueryDepositsRequest)
 }
 func (UnimplementedQueryServer) TallyResult(context.Context, *QueryTallyResultRequest) (*QueryTallyResultResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TallyResult not implemented")
+}
+func (UnimplementedQueryServer) Representatives(context.Context, *QueryRepresentativesRequest) (*QueryRepresentativesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Representatives not implemented")
+}
+func (UnimplementedQueryServer) Representative(context.Context, *QueryRepresentativeRequest) (*QueryRepresentativeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Representative not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -376,6 +410,42 @@ func _Query_TallyResult_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_Representatives_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryRepresentativesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).Representatives(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_Representatives_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).Representatives(ctx, req.(*QueryRepresentativesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_Representative_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryRepresentativeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).Representative(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_Representative_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).Representative(ctx, req.(*QueryRepresentativeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -418,6 +488,14 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TallyResult",
 			Handler:    _Query_TallyResult_Handler,
+		},
+		{
+			MethodName: "Representatives",
+			Handler:    _Query_Representatives_Handler,
+		},
+		{
+			MethodName: "Representative",
+			Handler:    _Query_Representative_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
