@@ -289,6 +289,58 @@ func (q Keeper) TallyResult(c context.Context, req *v1.QueryTallyResultRequest) 
 	return &v1.QueryTallyResultResponse{Tally: &tallyResult}, nil
 }
 
+// Representatives queries all representatives that match the given status
+func (q Keeper) Representatives(c context.Context, req *v1.QueryRepresentativesRequest) (*v1.QueryRepresentativesResponse, error) {
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "invalid request")
+	}
+
+	var representatives []*v1.Representative
+	ctx := sdk.UnwrapSDKContext(c)
+
+	store := ctx.KVStore(q.storeKey)
+	representativeStore := prefix.NewStore(store, types.RepresentativesKeyPrefix)
+
+	pageRes, err := query.Paginate(representativeStore, req.Pagination, func(key []byte, value []byte) error {
+		var representative v1.Representative
+		if err := q.cdc.Unmarshal(value, &representative); err != nil {
+			return err
+		}
+
+		representatives = append(representatives, &representative)
+		return nil
+	})
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	return &v1.QueryRepresentativesResponse{Representatives: representatives, Pagination: pageRes}, nil
+}
+
+// Representative queries representative info for given representative address
+func (q Keeper) Representative(c context.Context, req *v1.QueryRepresentativeRequest) (*v1.QueryRepresentativeResponse, error) {
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "empty request")
+	}
+
+	if req.RepresentativeAddr == "" {
+		return nil, status.Error(codes.InvalidArgument, "representative address cannot be empty")
+	}
+
+	repAddr, err := sdk.AccAddressFromBech32(req.RepresentativeAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	ctx := sdk.UnwrapSDKContext(c)
+	representative, found := q.GetRepresentativeByAddr(ctx, repAddr)
+	if !found {
+		return nil, status.Errorf(codes.NotFound, "representative %s not found", req.RepresentativeAddr)
+	}
+
+	return &v1.QueryRepresentativeResponse{Representative: &representative}, nil
+}
+
 var _ v1beta1.QueryServer = legacyQueryServer{}
 
 type legacyQueryServer struct {

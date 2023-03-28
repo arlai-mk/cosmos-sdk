@@ -97,6 +97,7 @@ func GenVeto(r *rand.Rand) math.LegacyDec {
 // RandomizedGenState generates a random GenesisState for gov
 func RandomizedGenState(simState *module.SimulationState) {
 	startingProposalID := uint64(simState.Rand.Intn(100))
+	startingRepresentativeID := uint64(simState.Rand.Intn(100))
 
 	var minDeposit sdk.Coins
 	simState.AppParams.GetOrGenerate(
@@ -166,6 +167,7 @@ func RandomizedGenState(simState *module.SimulationState) {
 
 	govGenesis := v1.NewGenesisState(
 		startingProposalID,
+		startingRepresentativeID,
 		v1.NewParams(minDeposit, expeditedMinDeposit, depositPeriod, votingPeriod, expeditedVotingPeriod, quorum.String(), threshold.String(), expitedVotingThreshold.String(), veto.String(), minInitialDepositRatio.String(), proposalCancelRate.String(), "", simState.Rand.Intn(2) == 0, simState.Rand.Intn(2) == 0, simState.Rand.Intn(2) == 0),
 	)
 

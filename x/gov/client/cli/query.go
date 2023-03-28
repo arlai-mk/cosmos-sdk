@@ -707,13 +707,13 @@ $ %s query gov representative %s1gghjut3ccd8ay0zduzj64hwre2fxs9ldmqhffj
 				return err
 			}
 
-			params := &v1.QueryRepresentativeRequest{RepAddr: addr.String()}
+			params := &v1.QueryRepresentativeRequest{RepresentativeAddr: addr.String()}
 			res, err := queryClient.Representative(cmd.Context(), params)
 			if err != nil {
 				return err
 			}
 
-			return clientCtx.PrintProto(&res.Validator)
+			return clientCtx.PrintProto(res.Representative)
 		},
 	}
 
@@ -748,8 +748,7 @@ $ %s query gov representatives
 				return err
 			}
 
-			result, err := queryClient.Representatives(cmd.Context(), &types.QueryRepresentativesRequest{
-				// Leaving status empty on purpose to query all representatives.
+			result, err := queryClient.Representatives(cmd.Context(), &v1.QueryRepresentativesRequest{
 				Pagination: pageReq,
 			})
 			if err != nil {
