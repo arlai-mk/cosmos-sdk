@@ -45,9 +45,9 @@ const (
 //
 // - 0x42<representativeAddrLen (1 Byte)><representativeAddr_Bytes>: RepresentativeID
 //
-// - 0x43<representativeID_Bytes><validatorAddrLen (1 Byte)><validatorAddr_Bytes>: VotingPower
+// - 0x43<representativeID_Bytes><validatorAddrLen (1 Byte)><validatorAddr_Bytes>: VotingPowerRep
 //
-// - 0x44<delegatorAddrLen (1 Byte)><delegatorAddr_Bytes><representativeID_Bytes>: VotingPowerShare
+// - 0x44<delegatorAddrLen (1 Byte)><delegatorAddr_Bytes>: VotingPowerDelShares
 var (
 	ProposalsKeyPrefix            = []byte{0x00}
 	ActiveProposalQueuePrefix     = []byte{0x01}
