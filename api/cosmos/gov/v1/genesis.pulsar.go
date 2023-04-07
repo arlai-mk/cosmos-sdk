@@ -216,19 +216,123 @@ func (x *_GenesisState_11_list) IsValid() bool {
 	return x.list != nil
 }
 
+var _ protoreflect.List = (*_GenesisState_12_list)(nil)
+
+type _GenesisState_12_list struct {
+	list *[]*VotingPowerRep
+}
+
+func (x *_GenesisState_12_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_GenesisState_12_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_GenesisState_12_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*VotingPowerRep)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_GenesisState_12_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*VotingPowerRep)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_GenesisState_12_list) AppendMutable() protoreflect.Value {
+	v := new(VotingPowerRep)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_12_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_GenesisState_12_list) NewElement() protoreflect.Value {
+	v := new(VotingPowerRep)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_12_list) IsValid() bool {
+	return x.list != nil
+}
+
+var _ protoreflect.List = (*_GenesisState_13_list)(nil)
+
+type _GenesisState_13_list struct {
+	list *[]*VotingPowerDelShares
+}
+
+func (x *_GenesisState_13_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_GenesisState_13_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_GenesisState_13_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*VotingPowerDelShares)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_GenesisState_13_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*VotingPowerDelShares)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_GenesisState_13_list) AppendMutable() protoreflect.Value {
+	v := new(VotingPowerDelShares)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_13_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_GenesisState_13_list) NewElement() protoreflect.Value {
+	v := new(VotingPowerDelShares)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_GenesisState_13_list) IsValid() bool {
+	return x.list != nil
+}
+
 var (
-	md_GenesisState                            protoreflect.MessageDescriptor
-	fd_GenesisState_starting_proposal_id       protoreflect.FieldDescriptor
-	fd_GenesisState_deposits                   protoreflect.FieldDescriptor
-	fd_GenesisState_votes                      protoreflect.FieldDescriptor
-	fd_GenesisState_proposals                  protoreflect.FieldDescriptor
-	fd_GenesisState_deposit_params             protoreflect.FieldDescriptor
-	fd_GenesisState_voting_params              protoreflect.FieldDescriptor
-	fd_GenesisState_tally_params               protoreflect.FieldDescriptor
-	fd_GenesisState_params                     protoreflect.FieldDescriptor
-	fd_GenesisState_constitution               protoreflect.FieldDescriptor
-	fd_GenesisState_starting_representative_id protoreflect.FieldDescriptor
-	fd_GenesisState_representatives            protoreflect.FieldDescriptor
+	md_GenesisState                               protoreflect.MessageDescriptor
+	fd_GenesisState_starting_proposal_id          protoreflect.FieldDescriptor
+	fd_GenesisState_deposits                      protoreflect.FieldDescriptor
+	fd_GenesisState_votes                         protoreflect.FieldDescriptor
+	fd_GenesisState_proposals                     protoreflect.FieldDescriptor
+	fd_GenesisState_deposit_params                protoreflect.FieldDescriptor
+	fd_GenesisState_voting_params                 protoreflect.FieldDescriptor
+	fd_GenesisState_tally_params                  protoreflect.FieldDescriptor
+	fd_GenesisState_params                        protoreflect.FieldDescriptor
+	fd_GenesisState_constitution                  protoreflect.FieldDescriptor
+	fd_GenesisState_starting_representative_id    protoreflect.FieldDescriptor
+	fd_GenesisState_representatives               protoreflect.FieldDescriptor
+	fd_GenesisState_representatives_voting_power  protoreflect.FieldDescriptor
+	fd_GenesisState_delegator_voting_power_shares protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -245,6 +349,8 @@ func init() {
 	fd_GenesisState_constitution = md_GenesisState.Fields().ByName("constitution")
 	fd_GenesisState_starting_representative_id = md_GenesisState.Fields().ByName("starting_representative_id")
 	fd_GenesisState_representatives = md_GenesisState.Fields().ByName("representatives")
+	fd_GenesisState_representatives_voting_power = md_GenesisState.Fields().ByName("representatives_voting_power")
+	fd_GenesisState_delegator_voting_power_shares = md_GenesisState.Fields().ByName("delegator_voting_power_shares")
 }
 
 var _ protoreflect.Message = (*fastReflection_GenesisState)(nil)
@@ -378,6 +484,18 @@ func (x *fastReflection_GenesisState) Range(f func(protoreflect.FieldDescriptor,
 			return
 		}
 	}
+	if len(x.RepresentativesVotingPower) != 0 {
+		value := protoreflect.ValueOfList(&_GenesisState_12_list{list: &x.RepresentativesVotingPower})
+		if !f(fd_GenesisState_representatives_voting_power, value) {
+			return
+		}
+	}
+	if len(x.DelegatorVotingPowerShares) != 0 {
+		value := protoreflect.ValueOfList(&_GenesisState_13_list{list: &x.DelegatorVotingPowerShares})
+		if !f(fd_GenesisState_delegator_voting_power_shares, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -415,6 +533,10 @@ func (x *fastReflection_GenesisState) Has(fd protoreflect.FieldDescriptor) bool 
 		return x.StartingRepresentativeId != uint64(0)
 	case "cosmos.gov.v1.GenesisState.representatives":
 		return len(x.Representatives) != 0
+	case "cosmos.gov.v1.GenesisState.representatives_voting_power":
+		return len(x.RepresentativesVotingPower) != 0
+	case "cosmos.gov.v1.GenesisState.delegator_voting_power_shares":
+		return len(x.DelegatorVotingPowerShares) != 0
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.GenesisState"))
@@ -453,6 +575,10 @@ func (x *fastReflection_GenesisState) Clear(fd protoreflect.FieldDescriptor) {
 		x.StartingRepresentativeId = uint64(0)
 	case "cosmos.gov.v1.GenesisState.representatives":
 		x.Representatives = nil
+	case "cosmos.gov.v1.GenesisState.representatives_voting_power":
+		x.RepresentativesVotingPower = nil
+	case "cosmos.gov.v1.GenesisState.delegator_voting_power_shares":
+		x.DelegatorVotingPowerShares = nil
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.GenesisState"))
@@ -514,6 +640,18 @@ func (x *fastReflection_GenesisState) Get(descriptor protoreflect.FieldDescripto
 		}
 		listValue := &_GenesisState_11_list{list: &x.Representatives}
 		return protoreflect.ValueOfList(listValue)
+	case "cosmos.gov.v1.GenesisState.representatives_voting_power":
+		if len(x.RepresentativesVotingPower) == 0 {
+			return protoreflect.ValueOfList(&_GenesisState_12_list{})
+		}
+		listValue := &_GenesisState_12_list{list: &x.RepresentativesVotingPower}
+		return protoreflect.ValueOfList(listValue)
+	case "cosmos.gov.v1.GenesisState.delegator_voting_power_shares":
+		if len(x.DelegatorVotingPowerShares) == 0 {
+			return protoreflect.ValueOfList(&_GenesisState_13_list{})
+		}
+		listValue := &_GenesisState_13_list{list: &x.DelegatorVotingPowerShares}
+		return protoreflect.ValueOfList(listValue)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.GenesisState"))
@@ -564,6 +702,14 @@ func (x *fastReflection_GenesisState) Set(fd protoreflect.FieldDescriptor, value
 		lv := value.List()
 		clv := lv.(*_GenesisState_11_list)
 		x.Representatives = *clv.list
+	case "cosmos.gov.v1.GenesisState.representatives_voting_power":
+		lv := value.List()
+		clv := lv.(*_GenesisState_12_list)
+		x.RepresentativesVotingPower = *clv.list
+	case "cosmos.gov.v1.GenesisState.delegator_voting_power_shares":
+		lv := value.List()
+		clv := lv.(*_GenesisState_13_list)
+		x.DelegatorVotingPowerShares = *clv.list
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.GenesisState"))
@@ -628,6 +774,18 @@ func (x *fastReflection_GenesisState) Mutable(fd protoreflect.FieldDescriptor) p
 		}
 		value := &_GenesisState_11_list{list: &x.Representatives}
 		return protoreflect.ValueOfList(value)
+	case "cosmos.gov.v1.GenesisState.representatives_voting_power":
+		if x.RepresentativesVotingPower == nil {
+			x.RepresentativesVotingPower = []*VotingPowerRep{}
+		}
+		value := &_GenesisState_12_list{list: &x.RepresentativesVotingPower}
+		return protoreflect.ValueOfList(value)
+	case "cosmos.gov.v1.GenesisState.delegator_voting_power_shares":
+		if x.DelegatorVotingPowerShares == nil {
+			x.DelegatorVotingPowerShares = []*VotingPowerDelShares{}
+		}
+		value := &_GenesisState_13_list{list: &x.DelegatorVotingPowerShares}
+		return protoreflect.ValueOfList(value)
 	case "cosmos.gov.v1.GenesisState.starting_proposal_id":
 		panic(fmt.Errorf("field starting_proposal_id of message cosmos.gov.v1.GenesisState is not mutable"))
 	case "cosmos.gov.v1.GenesisState.constitution":
@@ -677,6 +835,12 @@ func (x *fastReflection_GenesisState) NewField(fd protoreflect.FieldDescriptor) 
 	case "cosmos.gov.v1.GenesisState.representatives":
 		list := []*Representative{}
 		return protoreflect.ValueOfList(&_GenesisState_11_list{list: &list})
+	case "cosmos.gov.v1.GenesisState.representatives_voting_power":
+		list := []*VotingPowerRep{}
+		return protoreflect.ValueOfList(&_GenesisState_12_list{list: &list})
+	case "cosmos.gov.v1.GenesisState.delegator_voting_power_shares":
+		list := []*VotingPowerDelShares{}
+		return protoreflect.ValueOfList(&_GenesisState_13_list{list: &list})
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.GenesisState"))
@@ -796,6 +960,18 @@ func (x *fastReflection_GenesisState) ProtoMethods() *protoiface.Methods {
 				n += 1 + l + runtime.Sov(uint64(l))
 			}
 		}
+		if len(x.RepresentativesVotingPower) > 0 {
+			for _, e := range x.RepresentativesVotingPower {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if len(x.DelegatorVotingPowerShares) > 0 {
+			for _, e := range x.DelegatorVotingPowerShares {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -824,6 +1000,38 @@ func (x *fastReflection_GenesisState) ProtoMethods() *protoiface.Methods {
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.DelegatorVotingPowerShares) > 0 {
+			for iNdEx := len(x.DelegatorVotingPowerShares) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.DelegatorVotingPowerShares[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x6a
+			}
+		}
+		if len(x.RepresentativesVotingPower) > 0 {
+			for iNdEx := len(x.RepresentativesVotingPower) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.RepresentativesVotingPower[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0x62
+			}
 		}
 		if len(x.Representatives) > 0 {
 			for iNdEx := len(x.Representatives) - 1; iNdEx >= 0; iNdEx-- {
@@ -1361,6 +1569,74 @@ func (x *fastReflection_GenesisState) ProtoMethods() *protoiface.Methods {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
 				}
 				iNdEx = postIndex
+			case 12:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field RepresentativesVotingPower", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.RepresentativesVotingPower = append(x.RepresentativesVotingPower, &VotingPowerRep{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.RepresentativesVotingPower[len(x.RepresentativesVotingPower)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 13:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field DelegatorVotingPowerShares", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.DelegatorVotingPowerShares = append(x.DelegatorVotingPowerShares, &VotingPowerDelShares{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.DelegatorVotingPowerShares[len(x.DelegatorVotingPowerShares)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -1455,6 +1731,10 @@ type GenesisState struct {
 	StartingRepresentativeId uint64 `protobuf:"varint,10,opt,name=starting_representative_id,json=startingRepresentativeId,proto3" json:"starting_representative_id,omitempty"`
 	// representatives defines all the representatives present at genesis.
 	Representatives []*Representative `protobuf:"bytes,11,rep,name=representatives,proto3" json:"representatives,omitempty"`
+	// representatives_voting_power defines the voting power spread across validators from representatives.
+	RepresentativesVotingPower []*VotingPowerRep `protobuf:"bytes,12,rep,name=representatives_voting_power,json=representativesVotingPower,proto3" json:"representatives_voting_power,omitempty"`
+	// delegator_voting_power_shares defines the
+	DelegatorVotingPowerShares []*VotingPowerDelShares `protobuf:"bytes,13,rep,name=delegator_voting_power_shares,json=delegatorVotingPowerShares,proto3" json:"delegator_voting_power_shares,omitempty"`
 }
 
 func (x *GenesisState) Reset() {
@@ -1557,6 +1837,20 @@ func (x *GenesisState) GetRepresentatives() []*Representative {
 	return nil
 }
 
+func (x *GenesisState) GetRepresentativesVotingPower() []*VotingPowerRep {
+	if x != nil {
+		return x.RepresentativesVotingPower
+	}
+	return nil
+}
+
+func (x *GenesisState) GetDelegatorVotingPowerShares() []*VotingPowerDelShares {
+	if x != nil {
+		return x.DelegatorVotingPowerShares
+	}
+	return nil
+}
+
 var File_cosmos_gov_v1_genesis_proto protoreflect.FileDescriptor
 
 var file_cosmos_gov_v1_genesis_proto_rawDesc = []byte{
@@ -1564,7 +1858,7 @@ var file_cosmos_gov_v1_genesis_proto_rawDesc = []byte{
 	0x67, 0x65, 0x6e, 0x65, 0x73, 0x69, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0d, 0x63,
 	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x1a, 0x17, 0x63, 0x6f,
 	0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x67, 0x6f, 0x76, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x82, 0x05, 0x0a, 0x0c, 0x47, 0x65, 0x6e, 0x65, 0x73, 0x69,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xcb, 0x06, 0x0a, 0x0c, 0x47, 0x65, 0x6e, 0x65, 0x73, 0x69,
 	0x73, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x30, 0x0a, 0x14, 0x73, 0x74, 0x61, 0x72, 0x74, 0x69,
 	0x6e, 0x67, 0x5f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x04, 0x52, 0x12, 0x73, 0x74, 0x61, 0x72, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x72,
@@ -1604,18 +1898,30 @@ var file_cosmos_gov_v1_genesis_proto_rawDesc = []byte{
 	0x69, 0x76, 0x65, 0x73, 0x18, 0x0b, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x6f, 0x73,
 	0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65, 0x70, 0x72, 0x65,
 	0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x52, 0x0f, 0x72, 0x65, 0x70, 0x72, 0x65,
-	0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x42, 0x9d, 0x01, 0x0a, 0x11, 0x63,
-	0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31,
-	0x42, 0x0c, 0x47, 0x65, 0x6e, 0x65, 0x73, 0x69, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01,
-	0x5a, 0x24, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f, 0x61,
-	0x70, 0x69, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31,
-	0x3b, 0x67, 0x6f, 0x76, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x47, 0x58, 0xaa, 0x02, 0x0d, 0x43,
-	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x47, 0x6f, 0x76, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0d, 0x43,
-	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5c, 0x47, 0x6f, 0x76, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x19, 0x43,
-	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5c, 0x47, 0x6f, 0x76, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42,
-	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x0f, 0x43, 0x6f, 0x73, 0x6d, 0x6f,
-	0x73, 0x3a, 0x3a, 0x47, 0x6f, 0x76, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x12, 0x5f, 0x0a, 0x1c, 0x72, 0x65,
+	0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x5f, 0x76, 0x6f,
+	0x74, 0x69, 0x6e, 0x67, 0x5f, 0x70, 0x6f, 0x77, 0x65, 0x72, 0x18, 0x0c, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x1d, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31,
+	0x2e, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x52, 0x65, 0x70, 0x52,
+	0x1a, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73,
+	0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x12, 0x66, 0x0a, 0x1d, 0x64,
+	0x65, 0x6c, 0x65, 0x67, 0x61, 0x74, 0x6f, 0x72, 0x5f, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x5f,
+	0x70, 0x6f, 0x77, 0x65, 0x72, 0x5f, 0x73, 0x68, 0x61, 0x72, 0x65, 0x73, 0x18, 0x0d, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x23, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e,
+	0x76, 0x31, 0x2e, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x44, 0x65,
+	0x6c, 0x53, 0x68, 0x61, 0x72, 0x65, 0x73, 0x52, 0x1a, 0x64, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74,
+	0x6f, 0x72, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x53, 0x68, 0x61,
+	0x72, 0x65, 0x73, 0x42, 0x9d, 0x01, 0x0a, 0x11, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x73, 0x6d,
+	0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x42, 0x0c, 0x47, 0x65, 0x6e, 0x65, 0x73,
+	0x69, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x24, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x6f, 0x73, 0x6d,
+	0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x3b, 0x67, 0x6f, 0x76, 0x76, 0x31, 0xa2,
+	0x02, 0x03, 0x43, 0x47, 0x58, 0xaa, 0x02, 0x0d, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x47,
+	0x6f, 0x76, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0d, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5c, 0x47,
+	0x6f, 0x76, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x19, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5c, 0x47,
+	0x6f, 0x76, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0xea, 0x02, 0x0f, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x3a, 0x3a, 0x47, 0x6f, 0x76, 0x3a,
+	0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1632,30 +1938,34 @@ func file_cosmos_gov_v1_genesis_proto_rawDescGZIP() []byte {
 
 var file_cosmos_gov_v1_genesis_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_cosmos_gov_v1_genesis_proto_goTypes = []interface{}{
-	(*GenesisState)(nil),   // 0: cosmos.gov.v1.GenesisState
-	(*Deposit)(nil),        // 1: cosmos.gov.v1.Deposit
-	(*Vote)(nil),           // 2: cosmos.gov.v1.Vote
-	(*Proposal)(nil),       // 3: cosmos.gov.v1.Proposal
-	(*DepositParams)(nil),  // 4: cosmos.gov.v1.DepositParams
-	(*VotingParams)(nil),   // 5: cosmos.gov.v1.VotingParams
-	(*TallyParams)(nil),    // 6: cosmos.gov.v1.TallyParams
-	(*Params)(nil),         // 7: cosmos.gov.v1.Params
-	(*Representative)(nil), // 8: cosmos.gov.v1.Representative
+	(*GenesisState)(nil),         // 0: cosmos.gov.v1.GenesisState
+	(*Deposit)(nil),              // 1: cosmos.gov.v1.Deposit
+	(*Vote)(nil),                 // 2: cosmos.gov.v1.Vote
+	(*Proposal)(nil),             // 3: cosmos.gov.v1.Proposal
+	(*DepositParams)(nil),        // 4: cosmos.gov.v1.DepositParams
+	(*VotingParams)(nil),         // 5: cosmos.gov.v1.VotingParams
+	(*TallyParams)(nil),          // 6: cosmos.gov.v1.TallyParams
+	(*Params)(nil),               // 7: cosmos.gov.v1.Params
+	(*Representative)(nil),       // 8: cosmos.gov.v1.Representative
+	(*VotingPowerRep)(nil),       // 9: cosmos.gov.v1.VotingPowerRep
+	(*VotingPowerDelShares)(nil), // 10: cosmos.gov.v1.VotingPowerDelShares
 }
 var file_cosmos_gov_v1_genesis_proto_depIdxs = []int32{
-	1, // 0: cosmos.gov.v1.GenesisState.deposits:type_name -> cosmos.gov.v1.Deposit
-	2, // 1: cosmos.gov.v1.GenesisState.votes:type_name -> cosmos.gov.v1.Vote
-	3, // 2: cosmos.gov.v1.GenesisState.proposals:type_name -> cosmos.gov.v1.Proposal
-	4, // 3: cosmos.gov.v1.GenesisState.deposit_params:type_name -> cosmos.gov.v1.DepositParams
-	5, // 4: cosmos.gov.v1.GenesisState.voting_params:type_name -> cosmos.gov.v1.VotingParams
-	6, // 5: cosmos.gov.v1.GenesisState.tally_params:type_name -> cosmos.gov.v1.TallyParams
-	7, // 6: cosmos.gov.v1.GenesisState.params:type_name -> cosmos.gov.v1.Params
-	8, // 7: cosmos.gov.v1.GenesisState.representatives:type_name -> cosmos.gov.v1.Representative
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	1,  // 0: cosmos.gov.v1.GenesisState.deposits:type_name -> cosmos.gov.v1.Deposit
+	2,  // 1: cosmos.gov.v1.GenesisState.votes:type_name -> cosmos.gov.v1.Vote
+	3,  // 2: cosmos.gov.v1.GenesisState.proposals:type_name -> cosmos.gov.v1.Proposal
+	4,  // 3: cosmos.gov.v1.GenesisState.deposit_params:type_name -> cosmos.gov.v1.DepositParams
+	5,  // 4: cosmos.gov.v1.GenesisState.voting_params:type_name -> cosmos.gov.v1.VotingParams
+	6,  // 5: cosmos.gov.v1.GenesisState.tally_params:type_name -> cosmos.gov.v1.TallyParams
+	7,  // 6: cosmos.gov.v1.GenesisState.params:type_name -> cosmos.gov.v1.Params
+	8,  // 7: cosmos.gov.v1.GenesisState.representatives:type_name -> cosmos.gov.v1.Representative
+	9,  // 8: cosmos.gov.v1.GenesisState.representatives_voting_power:type_name -> cosmos.gov.v1.VotingPowerRep
+	10, // 9: cosmos.gov.v1.GenesisState.delegator_voting_power_shares:type_name -> cosmos.gov.v1.VotingPowerDelShares
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_cosmos_gov_v1_genesis_proto_init() }

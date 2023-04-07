@@ -41,4 +41,8 @@ message GenesisState {
   uint64 starting_representative_id = 10;
   // representatives defines all the representatives present at genesis.
   repeated Representative representatives = 11;
+  // representatives_voting_power defines the voting power spread across validators from representatives.
+  repeated VotingPowerRep representatives_voting_power = 12;
+  // delegator_voting_power_shares defines the 
+  repeated VotingPowerDelShares delegator_voting_power_shares = 13;
 }

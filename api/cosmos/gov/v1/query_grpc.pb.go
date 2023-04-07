@@ -21,17 +21,20 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Query_Constitution_FullMethodName    = "/cosmos.gov.v1.Query/Constitution"
-	Query_Proposal_FullMethodName        = "/cosmos.gov.v1.Query/Proposal"
-	Query_Proposals_FullMethodName       = "/cosmos.gov.v1.Query/Proposals"
-	Query_Vote_FullMethodName            = "/cosmos.gov.v1.Query/Vote"
-	Query_Votes_FullMethodName           = "/cosmos.gov.v1.Query/Votes"
-	Query_Params_FullMethodName          = "/cosmos.gov.v1.Query/Params"
-	Query_Deposit_FullMethodName         = "/cosmos.gov.v1.Query/Deposit"
-	Query_Deposits_FullMethodName        = "/cosmos.gov.v1.Query/Deposits"
-	Query_TallyResult_FullMethodName     = "/cosmos.gov.v1.Query/TallyResult"
-	Query_Representatives_FullMethodName = "/cosmos.gov.v1.Query/Representatives"
-	Query_Representative_FullMethodName  = "/cosmos.gov.v1.Query/Representative"
+	Query_Constitution_FullMethodName                       = "/cosmos.gov.v1.Query/Constitution"
+	Query_Proposal_FullMethodName                           = "/cosmos.gov.v1.Query/Proposal"
+	Query_Proposals_FullMethodName                          = "/cosmos.gov.v1.Query/Proposals"
+	Query_Vote_FullMethodName                               = "/cosmos.gov.v1.Query/Vote"
+	Query_Votes_FullMethodName                              = "/cosmos.gov.v1.Query/Votes"
+	Query_Params_FullMethodName                             = "/cosmos.gov.v1.Query/Params"
+	Query_Deposit_FullMethodName                            = "/cosmos.gov.v1.Query/Deposit"
+	Query_Deposits_FullMethodName                           = "/cosmos.gov.v1.Query/Deposits"
+	Query_TallyResult_FullMethodName                        = "/cosmos.gov.v1.Query/TallyResult"
+	Query_Representatives_FullMethodName                    = "/cosmos.gov.v1.Query/Representatives"
+	Query_Representative_FullMethodName                     = "/cosmos.gov.v1.Query/Representative"
+	Query_RepresentativeVotingPowers_FullMethodName         = "/cosmos.gov.v1.Query/RepresentativeVotingPowers"
+	Query_RepresentativeValidatorVotingPower_FullMethodName = "/cosmos.gov.v1.Query/RepresentativeValidatorVotingPower"
+	Query_DelegatorVotingPowerShares_FullMethodName         = "/cosmos.gov.v1.Query/DelegatorVotingPowerShares"
 )
 
 // QueryClient is the client API for Query service.
@@ -60,6 +63,12 @@ type QueryClient interface {
 	Representatives(ctx context.Context, in *QueryRepresentativesRequest, opts ...grpc.CallOption) (*QueryRepresentativesResponse, error)
 	// Representative queries representative info for given representative address.
 	Representative(ctx context.Context, in *QueryRepresentativeRequest, opts ...grpc.CallOption) (*QueryRepresentativeResponse, error)
+	// RepresentativeVotingPowers queries voting power spread among all validators for given representative address.
+	RepresentativeVotingPowers(ctx context.Context, in *QueryRepresentativeVotingPowersRequest, opts ...grpc.CallOption) (*QueryRepresentativeVotingPowersResponse, error)
+	// RepresentativeValidatorVotingPower queries voting power for given representative address and specific validator.
+	RepresentativeValidatorVotingPower(ctx context.Context, in *QueryRepresentativeValidatorVotingPowerRequest, opts ...grpc.CallOption) (*QueryRepresentativeValidatorVotingPowerResponse, error)
+	// DelegatorVotingPowerShares queries the voting power shares among representatives from a specific delegator
+	DelegatorVotingPowerShares(ctx context.Context, in *QueryDelegatorVotingPowerSharesRequest, opts ...grpc.CallOption) (*QueryDelegatorVotingPowerSharesResponse, error)
 }
 
 type queryClient struct {
@@ -169,6 +178,33 @@ func (c *queryClient) Representative(ctx context.Context, in *QueryRepresentativ
 	return out, nil
 }
 
+func (c *queryClient) RepresentativeVotingPowers(ctx context.Context, in *QueryRepresentativeVotingPowersRequest, opts ...grpc.CallOption) (*QueryRepresentativeVotingPowersResponse, error) {
+	out := new(QueryRepresentativeVotingPowersResponse)
+	err := c.cc.Invoke(ctx, Query_RepresentativeVotingPowers_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) RepresentativeValidatorVotingPower(ctx context.Context, in *QueryRepresentativeValidatorVotingPowerRequest, opts ...grpc.CallOption) (*QueryRepresentativeValidatorVotingPowerResponse, error) {
+	out := new(QueryRepresentativeValidatorVotingPowerResponse)
+	err := c.cc.Invoke(ctx, Query_RepresentativeValidatorVotingPower_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) DelegatorVotingPowerShares(ctx context.Context, in *QueryDelegatorVotingPowerSharesRequest, opts ...grpc.CallOption) (*QueryDelegatorVotingPowerSharesResponse, error) {
+	out := new(QueryDelegatorVotingPowerSharesResponse)
+	err := c.cc.Invoke(ctx, Query_DelegatorVotingPowerShares_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
@@ -195,6 +231,12 @@ type QueryServer interface {
 	Representatives(context.Context, *QueryRepresentativesRequest) (*QueryRepresentativesResponse, error)
 	// Representative queries representative info for given representative address.
 	Representative(context.Context, *QueryRepresentativeRequest) (*QueryRepresentativeResponse, error)
+	// RepresentativeVotingPowers queries voting power spread among all validators for given representative address.
+	RepresentativeVotingPowers(context.Context, *QueryRepresentativeVotingPowersRequest) (*QueryRepresentativeVotingPowersResponse, error)
+	// RepresentativeValidatorVotingPower queries voting power for given representative address and specific validator.
+	RepresentativeValidatorVotingPower(context.Context, *QueryRepresentativeValidatorVotingPowerRequest) (*QueryRepresentativeValidatorVotingPowerResponse, error)
+	// DelegatorVotingPowerShares queries the voting power shares among representatives from a specific delegator
+	DelegatorVotingPowerShares(context.Context, *QueryDelegatorVotingPowerSharesRequest) (*QueryDelegatorVotingPowerSharesResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -234,6 +276,15 @@ func (UnimplementedQueryServer) Representatives(context.Context, *QueryRepresent
 }
 func (UnimplementedQueryServer) Representative(context.Context, *QueryRepresentativeRequest) (*QueryRepresentativeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Representative not implemented")
+}
+func (UnimplementedQueryServer) RepresentativeVotingPowers(context.Context, *QueryRepresentativeVotingPowersRequest) (*QueryRepresentativeVotingPowersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RepresentativeVotingPowers not implemented")
+}
+func (UnimplementedQueryServer) RepresentativeValidatorVotingPower(context.Context, *QueryRepresentativeValidatorVotingPowerRequest) (*QueryRepresentativeValidatorVotingPowerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RepresentativeValidatorVotingPower not implemented")
+}
+func (UnimplementedQueryServer) DelegatorVotingPowerShares(context.Context, *QueryDelegatorVotingPowerSharesRequest) (*QueryDelegatorVotingPowerSharesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelegatorVotingPowerShares not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -446,6 +497,60 @@ func _Query_Representative_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_RepresentativeVotingPowers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryRepresentativeVotingPowersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).RepresentativeVotingPowers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_RepresentativeVotingPowers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).RepresentativeVotingPowers(ctx, req.(*QueryRepresentativeVotingPowersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_RepresentativeValidatorVotingPower_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryRepresentativeValidatorVotingPowerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).RepresentativeValidatorVotingPower(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_RepresentativeValidatorVotingPower_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).RepresentativeValidatorVotingPower(ctx, req.(*QueryRepresentativeValidatorVotingPowerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_DelegatorVotingPowerShares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryDelegatorVotingPowerSharesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).DelegatorVotingPowerShares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_DelegatorVotingPowerShares_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).DelegatorVotingPowerShares(ctx, req.(*QueryDelegatorVotingPowerSharesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -496,6 +601,18 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Representative",
 			Handler:    _Query_Representative_Handler,
+		},
+		{
+			MethodName: "RepresentativeVotingPowers",
+			Handler:    _Query_RepresentativeVotingPowers_Handler,
+		},
+		{
+			MethodName: "RepresentativeValidatorVotingPower",
+			Handler:    _Query_RepresentativeValidatorVotingPower_Handler,
+		},
+		{
+			MethodName: "DelegatorVotingPowerShares",
+			Handler:    _Query_DelegatorVotingPowerShares_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

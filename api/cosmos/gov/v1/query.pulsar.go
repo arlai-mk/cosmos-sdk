@@ -10526,6 +10526,2773 @@ func (x *fastReflection_QueryRepresentativeResponse) ProtoMethods() *protoiface.
 	}
 }
 
+var (
+	md_QueryRepresentativeVotingPowersRequest                     protoreflect.MessageDescriptor
+	fd_QueryRepresentativeVotingPowersRequest_representative_addr protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_query_proto_init()
+	md_QueryRepresentativeVotingPowersRequest = File_cosmos_gov_v1_query_proto.Messages().ByName("QueryRepresentativeVotingPowersRequest")
+	fd_QueryRepresentativeVotingPowersRequest_representative_addr = md_QueryRepresentativeVotingPowersRequest.Fields().ByName("representative_addr")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryRepresentativeVotingPowersRequest)(nil)
+
+type fastReflection_QueryRepresentativeVotingPowersRequest QueryRepresentativeVotingPowersRequest
+
+func (x *QueryRepresentativeVotingPowersRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeVotingPowersRequest)(x)
+}
+
+func (x *QueryRepresentativeVotingPowersRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_query_proto_msgTypes[22]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryRepresentativeVotingPowersRequest_messageType fastReflection_QueryRepresentativeVotingPowersRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryRepresentativeVotingPowersRequest_messageType{}
+
+type fastReflection_QueryRepresentativeVotingPowersRequest_messageType struct{}
+
+func (x fastReflection_QueryRepresentativeVotingPowersRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeVotingPowersRequest)(nil)
+}
+func (x fastReflection_QueryRepresentativeVotingPowersRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeVotingPowersRequest)
+}
+func (x fastReflection_QueryRepresentativeVotingPowersRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeVotingPowersRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeVotingPowersRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryRepresentativeVotingPowersRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeVotingPowersRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryRepresentativeVotingPowersRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.RepresentativeAddr != "" {
+		value := protoreflect.ValueOfString(x.RepresentativeAddr)
+		if !f(fd_QueryRepresentativeVotingPowersRequest_representative_addr, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersRequest.representative_addr":
+		return x.RepresentativeAddr != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersRequest.representative_addr":
+		x.RepresentativeAddr = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersRequest.representative_addr":
+		value := x.RepresentativeAddr
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersRequest.representative_addr":
+		x.RepresentativeAddr = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersRequest.representative_addr":
+		panic(fmt.Errorf("field representative_addr of message cosmos.gov.v1.QueryRepresentativeVotingPowersRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersRequest.representative_addr":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.QueryRepresentativeVotingPowersRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryRepresentativeVotingPowersRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryRepresentativeVotingPowersRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.RepresentativeAddr)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeVotingPowersRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.RepresentativeAddr) > 0 {
+			i -= len(x.RepresentativeAddr)
+			copy(dAtA[i:], x.RepresentativeAddr)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.RepresentativeAddr)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeVotingPowersRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeVotingPowersRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeVotingPowersRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field RepresentativeAddr", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.RepresentativeAddr = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryRepresentativeVotingPowersResponse_1_list)(nil)
+
+type _QueryRepresentativeVotingPowersResponse_1_list struct {
+	list *[]*VotingPowerRep
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*VotingPowerRep)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*VotingPowerRep)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) AppendMutable() protoreflect.Value {
+	v := new(VotingPowerRep)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) NewElement() protoreflect.Value {
+	v := new(VotingPowerRep)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryRepresentativeVotingPowersResponse_1_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryRepresentativeVotingPowersResponse                  protoreflect.MessageDescriptor
+	fd_QueryRepresentativeVotingPowersResponse_rep_voting_power protoreflect.FieldDescriptor
+	fd_QueryRepresentativeVotingPowersResponse_pagination       protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_query_proto_init()
+	md_QueryRepresentativeVotingPowersResponse = File_cosmos_gov_v1_query_proto.Messages().ByName("QueryRepresentativeVotingPowersResponse")
+	fd_QueryRepresentativeVotingPowersResponse_rep_voting_power = md_QueryRepresentativeVotingPowersResponse.Fields().ByName("rep_voting_power")
+	fd_QueryRepresentativeVotingPowersResponse_pagination = md_QueryRepresentativeVotingPowersResponse.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryRepresentativeVotingPowersResponse)(nil)
+
+type fastReflection_QueryRepresentativeVotingPowersResponse QueryRepresentativeVotingPowersResponse
+
+func (x *QueryRepresentativeVotingPowersResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeVotingPowersResponse)(x)
+}
+
+func (x *QueryRepresentativeVotingPowersResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_query_proto_msgTypes[23]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryRepresentativeVotingPowersResponse_messageType fastReflection_QueryRepresentativeVotingPowersResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryRepresentativeVotingPowersResponse_messageType{}
+
+type fastReflection_QueryRepresentativeVotingPowersResponse_messageType struct{}
+
+func (x fastReflection_QueryRepresentativeVotingPowersResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeVotingPowersResponse)(nil)
+}
+func (x fastReflection_QueryRepresentativeVotingPowersResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeVotingPowersResponse)
+}
+func (x fastReflection_QueryRepresentativeVotingPowersResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeVotingPowersResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeVotingPowersResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryRepresentativeVotingPowersResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeVotingPowersResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryRepresentativeVotingPowersResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if len(x.RepVotingPower) != 0 {
+		value := protoreflect.ValueOfList(&_QueryRepresentativeVotingPowersResponse_1_list{list: &x.RepVotingPower})
+		if !f(fd_QueryRepresentativeVotingPowersResponse_rep_voting_power, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryRepresentativeVotingPowersResponse_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.rep_voting_power":
+		return len(x.RepVotingPower) != 0
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.rep_voting_power":
+		x.RepVotingPower = nil
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.rep_voting_power":
+		if len(x.RepVotingPower) == 0 {
+			return protoreflect.ValueOfList(&_QueryRepresentativeVotingPowersResponse_1_list{})
+		}
+		listValue := &_QueryRepresentativeVotingPowersResponse_1_list{list: &x.RepVotingPower}
+		return protoreflect.ValueOfList(listValue)
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.rep_voting_power":
+		lv := value.List()
+		clv := lv.(*_QueryRepresentativeVotingPowersResponse_1_list)
+		x.RepVotingPower = *clv.list
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.rep_voting_power":
+		if x.RepVotingPower == nil {
+			x.RepVotingPower = []*VotingPowerRep{}
+		}
+		value := &_QueryRepresentativeVotingPowersResponse_1_list{list: &x.RepVotingPower}
+		return protoreflect.ValueOfList(value)
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageResponse)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.rep_voting_power":
+		list := []*VotingPowerRep{}
+		return protoreflect.ValueOfList(&_QueryRepresentativeVotingPowersResponse_1_list{list: &list})
+	case "cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.pagination":
+		m := new(v1beta1.PageResponse)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeVotingPowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.QueryRepresentativeVotingPowersResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryRepresentativeVotingPowersResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryRepresentativeVotingPowersResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if len(x.RepVotingPower) > 0 {
+			for _, e := range x.RepVotingPower {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeVotingPowersResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.RepVotingPower) > 0 {
+			for iNdEx := len(x.RepVotingPower) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.RepVotingPower[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0xa
+			}
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeVotingPowersResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeVotingPowersResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeVotingPowersResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field RepVotingPower", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.RepVotingPower = append(x.RepVotingPower, &VotingPowerRep{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.RepVotingPower[len(x.RepVotingPower)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageResponse{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryRepresentativeValidatorVotingPowerRequest                     protoreflect.MessageDescriptor
+	fd_QueryRepresentativeValidatorVotingPowerRequest_representative_addr protoreflect.FieldDescriptor
+	fd_QueryRepresentativeValidatorVotingPowerRequest_validator_addr      protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_query_proto_init()
+	md_QueryRepresentativeValidatorVotingPowerRequest = File_cosmos_gov_v1_query_proto.Messages().ByName("QueryRepresentativeValidatorVotingPowerRequest")
+	fd_QueryRepresentativeValidatorVotingPowerRequest_representative_addr = md_QueryRepresentativeValidatorVotingPowerRequest.Fields().ByName("representative_addr")
+	fd_QueryRepresentativeValidatorVotingPowerRequest_validator_addr = md_QueryRepresentativeValidatorVotingPowerRequest.Fields().ByName("validator_addr")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryRepresentativeValidatorVotingPowerRequest)(nil)
+
+type fastReflection_QueryRepresentativeValidatorVotingPowerRequest QueryRepresentativeValidatorVotingPowerRequest
+
+func (x *QueryRepresentativeValidatorVotingPowerRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeValidatorVotingPowerRequest)(x)
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_query_proto_msgTypes[24]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType{}
+
+type fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType struct{}
+
+func (x fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeValidatorVotingPowerRequest)(nil)
+}
+func (x fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeValidatorVotingPowerRequest)
+}
+func (x fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeValidatorVotingPowerRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeValidatorVotingPowerRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryRepresentativeValidatorVotingPowerRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeValidatorVotingPowerRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryRepresentativeValidatorVotingPowerRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.RepresentativeAddr != "" {
+		value := protoreflect.ValueOfString(x.RepresentativeAddr)
+		if !f(fd_QueryRepresentativeValidatorVotingPowerRequest_representative_addr, value) {
+			return
+		}
+	}
+	if x.ValidatorAddr != "" {
+		value := protoreflect.ValueOfString(x.ValidatorAddr)
+		if !f(fd_QueryRepresentativeValidatorVotingPowerRequest_validator_addr, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.representative_addr":
+		return x.RepresentativeAddr != ""
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.validator_addr":
+		return x.ValidatorAddr != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.representative_addr":
+		x.RepresentativeAddr = ""
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.validator_addr":
+		x.ValidatorAddr = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.representative_addr":
+		value := x.RepresentativeAddr
+		return protoreflect.ValueOfString(value)
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.validator_addr":
+		value := x.ValidatorAddr
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.representative_addr":
+		x.RepresentativeAddr = value.Interface().(string)
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.validator_addr":
+		x.ValidatorAddr = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.representative_addr":
+		panic(fmt.Errorf("field representative_addr of message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest is not mutable"))
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.validator_addr":
+		panic(fmt.Errorf("field validator_addr of message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.representative_addr":
+		return protoreflect.ValueOfString("")
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest.validator_addr":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryRepresentativeValidatorVotingPowerRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.RepresentativeAddr)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.ValidatorAddr)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeValidatorVotingPowerRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.ValidatorAddr) > 0 {
+			i -= len(x.ValidatorAddr)
+			copy(dAtA[i:], x.ValidatorAddr)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.ValidatorAddr)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.RepresentativeAddr) > 0 {
+			i -= len(x.RepresentativeAddr)
+			copy(dAtA[i:], x.RepresentativeAddr)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.RepresentativeAddr)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeValidatorVotingPowerRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeValidatorVotingPowerRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeValidatorVotingPowerRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field RepresentativeAddr", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.RepresentativeAddr = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field ValidatorAddr", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.ValidatorAddr = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryRepresentativeValidatorVotingPowerResponse                  protoreflect.MessageDescriptor
+	fd_QueryRepresentativeValidatorVotingPowerResponse_rep_voting_power protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_query_proto_init()
+	md_QueryRepresentativeValidatorVotingPowerResponse = File_cosmos_gov_v1_query_proto.Messages().ByName("QueryRepresentativeValidatorVotingPowerResponse")
+	fd_QueryRepresentativeValidatorVotingPowerResponse_rep_voting_power = md_QueryRepresentativeValidatorVotingPowerResponse.Fields().ByName("rep_voting_power")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryRepresentativeValidatorVotingPowerResponse)(nil)
+
+type fastReflection_QueryRepresentativeValidatorVotingPowerResponse QueryRepresentativeValidatorVotingPowerResponse
+
+func (x *QueryRepresentativeValidatorVotingPowerResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeValidatorVotingPowerResponse)(x)
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_query_proto_msgTypes[25]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType{}
+
+type fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType struct{}
+
+func (x fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryRepresentativeValidatorVotingPowerResponse)(nil)
+}
+func (x fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeValidatorVotingPowerResponse)
+}
+func (x fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeValidatorVotingPowerResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryRepresentativeValidatorVotingPowerResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryRepresentativeValidatorVotingPowerResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryRepresentativeValidatorVotingPowerResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryRepresentativeValidatorVotingPowerResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.RepVotingPower != nil {
+		value := protoreflect.ValueOfMessage(x.RepVotingPower.ProtoReflect())
+		if !f(fd_QueryRepresentativeValidatorVotingPowerResponse_rep_voting_power, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse.rep_voting_power":
+		return x.RepVotingPower != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse.rep_voting_power":
+		x.RepVotingPower = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse.rep_voting_power":
+		value := x.RepVotingPower
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse.rep_voting_power":
+		x.RepVotingPower = value.Message().Interface().(*VotingPowerRep)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse.rep_voting_power":
+		if x.RepVotingPower == nil {
+			x.RepVotingPower = new(VotingPowerRep)
+		}
+		return protoreflect.ValueOfMessage(x.RepVotingPower.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse.rep_voting_power":
+		m := new(VotingPowerRep)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryRepresentativeValidatorVotingPowerResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryRepresentativeValidatorVotingPowerResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.RepVotingPower != nil {
+			l = options.Size(x.RepVotingPower)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeValidatorVotingPowerResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.RepVotingPower != nil {
+			encoded, err := options.Marshal(x.RepVotingPower)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryRepresentativeValidatorVotingPowerResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeValidatorVotingPowerResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryRepresentativeValidatorVotingPowerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field RepVotingPower", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.RepVotingPower == nil {
+					x.RepVotingPower = &VotingPowerRep{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.RepVotingPower); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryDelegatorVotingPowerSharesRequest                protoreflect.MessageDescriptor
+	fd_QueryDelegatorVotingPowerSharesRequest_delegator_addr protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_query_proto_init()
+	md_QueryDelegatorVotingPowerSharesRequest = File_cosmos_gov_v1_query_proto.Messages().ByName("QueryDelegatorVotingPowerSharesRequest")
+	fd_QueryDelegatorVotingPowerSharesRequest_delegator_addr = md_QueryDelegatorVotingPowerSharesRequest.Fields().ByName("delegator_addr")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryDelegatorVotingPowerSharesRequest)(nil)
+
+type fastReflection_QueryDelegatorVotingPowerSharesRequest QueryDelegatorVotingPowerSharesRequest
+
+func (x *QueryDelegatorVotingPowerSharesRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryDelegatorVotingPowerSharesRequest)(x)
+}
+
+func (x *QueryDelegatorVotingPowerSharesRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_query_proto_msgTypes[26]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType{}
+
+type fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType struct{}
+
+func (x fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryDelegatorVotingPowerSharesRequest)(nil)
+}
+func (x fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryDelegatorVotingPowerSharesRequest)
+}
+func (x fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryDelegatorVotingPowerSharesRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryDelegatorVotingPowerSharesRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryDelegatorVotingPowerSharesRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryDelegatorVotingPowerSharesRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryDelegatorVotingPowerSharesRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.DelegatorAddr != "" {
+		value := protoreflect.ValueOfString(x.DelegatorAddr)
+		if !f(fd_QueryDelegatorVotingPowerSharesRequest_delegator_addr, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest.delegator_addr":
+		return x.DelegatorAddr != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest.delegator_addr":
+		x.DelegatorAddr = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest.delegator_addr":
+		value := x.DelegatorAddr
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest.delegator_addr":
+		x.DelegatorAddr = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest.delegator_addr":
+		panic(fmt.Errorf("field delegator_addr of message cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest.delegator_addr":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryDelegatorVotingPowerSharesRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.DelegatorAddr)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryDelegatorVotingPowerSharesRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.DelegatorAddr) > 0 {
+			i -= len(x.DelegatorAddr)
+			copy(dAtA[i:], x.DelegatorAddr)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.DelegatorAddr)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryDelegatorVotingPowerSharesRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryDelegatorVotingPowerSharesRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryDelegatorVotingPowerSharesRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field DelegatorAddr", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.DelegatorAddr = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryDelegatorVotingPowerSharesResponse                     protoreflect.MessageDescriptor
+	fd_QueryDelegatorVotingPowerSharesResponse_voting_power_shares protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_cosmos_gov_v1_query_proto_init()
+	md_QueryDelegatorVotingPowerSharesResponse = File_cosmos_gov_v1_query_proto.Messages().ByName("QueryDelegatorVotingPowerSharesResponse")
+	fd_QueryDelegatorVotingPowerSharesResponse_voting_power_shares = md_QueryDelegatorVotingPowerSharesResponse.Fields().ByName("voting_power_shares")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryDelegatorVotingPowerSharesResponse)(nil)
+
+type fastReflection_QueryDelegatorVotingPowerSharesResponse QueryDelegatorVotingPowerSharesResponse
+
+func (x *QueryDelegatorVotingPowerSharesResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryDelegatorVotingPowerSharesResponse)(x)
+}
+
+func (x *QueryDelegatorVotingPowerSharesResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_cosmos_gov_v1_query_proto_msgTypes[27]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType{}
+
+type fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType struct{}
+
+func (x fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryDelegatorVotingPowerSharesResponse)(nil)
+}
+func (x fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryDelegatorVotingPowerSharesResponse)
+}
+func (x fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryDelegatorVotingPowerSharesResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryDelegatorVotingPowerSharesResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryDelegatorVotingPowerSharesResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryDelegatorVotingPowerSharesResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryDelegatorVotingPowerSharesResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.VotingPowerShares != nil {
+		value := protoreflect.ValueOfMessage(x.VotingPowerShares.ProtoReflect())
+		if !f(fd_QueryDelegatorVotingPowerSharesResponse_voting_power_shares, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse.voting_power_shares":
+		return x.VotingPowerShares != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse.voting_power_shares":
+		x.VotingPowerShares = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse.voting_power_shares":
+		value := x.VotingPowerShares
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse.voting_power_shares":
+		x.VotingPowerShares = value.Message().Interface().(*VotingPowerDelShares)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse.voting_power_shares":
+		if x.VotingPowerShares == nil {
+			x.VotingPowerShares = new(VotingPowerDelShares)
+		}
+		return protoreflect.ValueOfMessage(x.VotingPowerShares.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse.voting_power_shares":
+		m := new(VotingPowerDelShares)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse"))
+		}
+		panic(fmt.Errorf("message cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryDelegatorVotingPowerSharesResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryDelegatorVotingPowerSharesResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.VotingPowerShares != nil {
+			l = options.Size(x.VotingPowerShares)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryDelegatorVotingPowerSharesResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.VotingPowerShares != nil {
+			encoded, err := options.Marshal(x.VotingPowerShares)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryDelegatorVotingPowerSharesResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryDelegatorVotingPowerSharesResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryDelegatorVotingPowerSharesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field VotingPowerShares", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.VotingPowerShares == nil {
+					x.VotingPowerShares = &VotingPowerDelShares{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.VotingPowerShares); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Since: cosmos-sdk 0.46
 
 // Code generated by protoc-gen-go. DO NOT EDIT.
@@ -11412,7 +14179,7 @@ func (x *QueryRepresentativesResponse) GetPagination() *v1beta1.PageResponse {
 	return nil
 }
 
-// QueryRepresentativeRequest is response type for the Query/Representative RPC method
+// QueryRepresentativeRequest is request type for the Query/Representative RPC method
 type QueryRepresentativeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -11482,6 +14249,243 @@ func (*QueryRepresentativeResponse) Descriptor() ([]byte, []int) {
 func (x *QueryRepresentativeResponse) GetRepresentative() *Representative {
 	if x != nil {
 		return x.Representative
+	}
+	return nil
+}
+
+// QueryRepresentativeVotingPowersRequest is request type for the Query/RepresentativeVotingPowers RPC method
+type QueryRepresentativeVotingPowersRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// representative_addr defines the representative address to query for.
+	RepresentativeAddr string `protobuf:"bytes,1,opt,name=representative_addr,json=representativeAddr,proto3" json:"representative_addr,omitempty"`
+}
+
+func (x *QueryRepresentativeVotingPowersRequest) Reset() {
+	*x = QueryRepresentativeVotingPowersRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_query_proto_msgTypes[22]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryRepresentativeVotingPowersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRepresentativeVotingPowersRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryRepresentativeVotingPowersRequest.ProtoReflect.Descriptor instead.
+func (*QueryRepresentativeVotingPowersRequest) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_query_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *QueryRepresentativeVotingPowersRequest) GetRepresentativeAddr() string {
+	if x != nil {
+		return x.RepresentativeAddr
+	}
+	return ""
+}
+
+// QueryRepresentativeVotingPowersReponse is response type for the Query/RepresentativeVotingPowers RPC method
+type QueryRepresentativeVotingPowersResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RepVotingPower []*VotingPowerRep `protobuf:"bytes,1,rep,name=rep_voting_power,json=repVotingPower,proto3" json:"rep_voting_power,omitempty"`
+	// pagination defines the pagination in the response.
+	Pagination *v1beta1.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryRepresentativeVotingPowersResponse) Reset() {
+	*x = QueryRepresentativeVotingPowersResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_query_proto_msgTypes[23]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryRepresentativeVotingPowersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRepresentativeVotingPowersResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryRepresentativeVotingPowersResponse.ProtoReflect.Descriptor instead.
+func (*QueryRepresentativeVotingPowersResponse) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_query_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *QueryRepresentativeVotingPowersResponse) GetRepVotingPower() []*VotingPowerRep {
+	if x != nil {
+		return x.RepVotingPower
+	}
+	return nil
+}
+
+func (x *QueryRepresentativeVotingPowersResponse) GetPagination() *v1beta1.PageResponse {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+// QueryRepresentativeValidatorVotingPowerRequest is request type for the Query/RepresentativeValidatorVotingPower RPC method
+type QueryRepresentativeValidatorVotingPowerRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// representative_addr defines the representative address to query for.
+	RepresentativeAddr string `protobuf:"bytes,1,opt,name=representative_addr,json=representativeAddr,proto3" json:"representative_addr,omitempty"`
+	// validator_addr defines the validator address to query for.
+	ValidatorAddr string `protobuf:"bytes,2,opt,name=validator_addr,json=validatorAddr,proto3" json:"validator_addr,omitempty"`
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerRequest) Reset() {
+	*x = QueryRepresentativeValidatorVotingPowerRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_query_proto_msgTypes[24]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRepresentativeValidatorVotingPowerRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryRepresentativeValidatorVotingPowerRequest.ProtoReflect.Descriptor instead.
+func (*QueryRepresentativeValidatorVotingPowerRequest) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_query_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerRequest) GetRepresentativeAddr() string {
+	if x != nil {
+		return x.RepresentativeAddr
+	}
+	return ""
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerRequest) GetValidatorAddr() string {
+	if x != nil {
+		return x.ValidatorAddr
+	}
+	return ""
+}
+
+// QueryRepresentativeValidatorVotingPowerReponse is response type for the Query/RepresentativeValidatorVotingPower RPC method
+type QueryRepresentativeValidatorVotingPowerResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RepVotingPower *VotingPowerRep `protobuf:"bytes,1,opt,name=rep_voting_power,json=repVotingPower,proto3" json:"rep_voting_power,omitempty"`
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerResponse) Reset() {
+	*x = QueryRepresentativeValidatorVotingPowerResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_query_proto_msgTypes[25]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryRepresentativeValidatorVotingPowerResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryRepresentativeValidatorVotingPowerResponse.ProtoReflect.Descriptor instead.
+func (*QueryRepresentativeValidatorVotingPowerResponse) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_query_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *QueryRepresentativeValidatorVotingPowerResponse) GetRepVotingPower() *VotingPowerRep {
+	if x != nil {
+		return x.RepVotingPower
+	}
+	return nil
+}
+
+// QueryDelegatorVotingPowerSharesRequest is request type for the Query/DelegatorVotingPowerShares RPC method
+type QueryDelegatorVotingPowerSharesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// delegator_addr defines the delegator address to query for.
+	DelegatorAddr string `protobuf:"bytes,1,opt,name=delegator_addr,json=delegatorAddr,proto3" json:"delegator_addr,omitempty"`
+}
+
+func (x *QueryDelegatorVotingPowerSharesRequest) Reset() {
+	*x = QueryDelegatorVotingPowerSharesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_query_proto_msgTypes[26]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryDelegatorVotingPowerSharesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryDelegatorVotingPowerSharesRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryDelegatorVotingPowerSharesRequest.ProtoReflect.Descriptor instead.
+func (*QueryDelegatorVotingPowerSharesRequest) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_query_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *QueryDelegatorVotingPowerSharesRequest) GetDelegatorAddr() string {
+	if x != nil {
+		return x.DelegatorAddr
+	}
+	return ""
+}
+
+// QueryDelegatorVotingPowerSharesResponse is reponse type for the Query/DelegatorVotingPowerShares RPC method
+type QueryDelegatorVotingPowerSharesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	VotingPowerShares *VotingPowerDelShares `protobuf:"bytes,1,opt,name=voting_power_shares,json=votingPowerShares,proto3" json:"voting_power_shares,omitempty"`
+}
+
+func (x *QueryDelegatorVotingPowerSharesResponse) Reset() {
+	*x = QueryDelegatorVotingPowerSharesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cosmos_gov_v1_query_proto_msgTypes[27]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryDelegatorVotingPowerSharesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryDelegatorVotingPowerSharesResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryDelegatorVotingPowerSharesResponse.ProtoReflect.Descriptor instead.
+func (*QueryDelegatorVotingPowerSharesResponse) Descriptor() ([]byte, []int) {
+	return file_cosmos_gov_v1_query_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *QueryDelegatorVotingPowerSharesResponse) GetVotingPowerShares() *VotingPowerDelShares {
+	if x != nil {
+		return x.VotingPowerShares
 	}
 	return nil
 }
@@ -11656,116 +14660,211 @@ var file_cosmos_gov_v1_query_proto_rawDesc = []byte{
 	0x61, 0x74, 0x69, 0x76, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x6f,
 	0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65, 0x70, 0x72,
 	0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x52, 0x0e, 0x72, 0x65, 0x70, 0x72,
-	0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x32, 0xa0, 0x0c, 0x0a, 0x05, 0x51,
-	0x75, 0x65, 0x72, 0x79, 0x12, 0x86, 0x01, 0x0a, 0x0c, 0x43, 0x6f, 0x6e, 0x73, 0x74, 0x69, 0x74,
-	0x75, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67,
-	0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x73, 0x74,
-	0x69, 0x74, 0x75, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x28,
+	0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x22, 0x73, 0x0a, 0x26, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76,
+	0x65, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x49, 0x0a, 0x13, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e,
+	0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x61, 0x64, 0x64, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64,
+	0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x12, 0x72, 0x65, 0x70,
+	0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x41, 0x64, 0x64, 0x72, 0x22,
+	0xbb, 0x01, 0x0a, 0x27, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65,
+	0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77,
+	0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a, 0x10, 0x72,
+	0x65, 0x70, 0x5f, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x5f, 0x70, 0x6f, 0x77, 0x65, 0x72, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67,
+	0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65,
+	0x72, 0x52, 0x65, 0x70, 0x52, 0x0e, 0x72, 0x65, 0x70, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50,
+	0x6f, 0x77, 0x65, 0x72, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x76, 0x31, 0x62,
+	0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0xbc, 0x01,
+	0x0a, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74,
+	0x61, 0x74, 0x69, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f,
+	0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x49, 0x0a, 0x13, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69,
+	0x76, 0x65, 0x5f, 0x61, 0x64, 0x64, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x18, 0xd2,
+	0xb4, 0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0x73, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x12, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65,
+	0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x41, 0x64, 0x64, 0x72, 0x12, 0x3f, 0x0a, 0x0e, 0x76,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5f, 0x61, 0x64, 0x64, 0x72, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e,
+	0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x0d, 0x76,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x41, 0x64, 0x64, 0x72, 0x22, 0x7a, 0x0a, 0x2f,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74,
+	0x69, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f, 0x74, 0x69,
+	0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x47, 0x0a, 0x10, 0x72, 0x65, 0x70, 0x5f, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x5f, 0x70, 0x6f,
+	0x77, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x6f, 0x73, 0x6d,
+	0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67,
+	0x50, 0x6f, 0x77, 0x65, 0x72, 0x52, 0x65, 0x70, 0x52, 0x0e, 0x72, 0x65, 0x70, 0x56, 0x6f, 0x74,
+	0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x22, 0x69, 0x0a, 0x26, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x44, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67,
+	0x50, 0x6f, 0x77, 0x65, 0x72, 0x53, 0x68, 0x61, 0x72, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x3f, 0x0a, 0x0e, 0x64, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74, 0x6f, 0x72, 0x5f,
+	0x61, 0x64, 0x64, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x18, 0xd2, 0xb4, 0x2d, 0x14,
+	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x53, 0x74,
+	0x72, 0x69, 0x6e, 0x67, 0x52, 0x0d, 0x64, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74, 0x6f, 0x72, 0x41,
+	0x64, 0x64, 0x72, 0x22, 0x7e, 0x0a, 0x27, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x6c, 0x65,
+	0x67, 0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72,
+	0x53, 0x68, 0x61, 0x72, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x53,
+	0x0a, 0x13, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x5f, 0x70, 0x6f, 0x77, 0x65, 0x72, 0x5f, 0x73,
+	0x68, 0x61, 0x72, 0x65, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x23, 0x2e, 0x63, 0x6f,
+	0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x6f, 0x74, 0x69,
+	0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x44, 0x65, 0x6c, 0x53, 0x68, 0x61, 0x72, 0x65, 0x73,
+	0x52, 0x11, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x53, 0x68, 0x61,
+	0x72, 0x65, 0x73, 0x32, 0xc2, 0x11, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x86, 0x01,
+	0x0a, 0x0c, 0x43, 0x6f, 0x6e, 0x73, 0x74, 0x69, 0x74, 0x75, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x27,
 	0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51,
 	0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e, 0x73, 0x74, 0x69, 0x74, 0x75, 0x74, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x23, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1d,
-	0x12, 0x1b, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31,
-	0x2f, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x69, 0x74, 0x75, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x85, 0x01,
-	0x0a, 0x08, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x12, 0x23, 0x2e, 0x63, 0x6f, 0x73,
-	0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x24, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2e, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x28, 0x12, 0x26, 0x2f,
-	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72,
-	0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61,
-	0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x12, 0x7a, 0x0a, 0x09, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61,
-	0x6c, 0x73, 0x12, 0x24, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e,
-	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x28, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73,
+	0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x43, 0x6f, 0x6e,
+	0x73, 0x74, 0x69, 0x74, 0x75, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x23, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1d, 0x12, 0x1b, 0x2f, 0x63, 0x6f, 0x73, 0x6d,
+	0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x69,
+	0x74, 0x75, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x85, 0x01, 0x0a, 0x08, 0x50, 0x72, 0x6f, 0x70, 0x6f,
+	0x73, 0x61, 0x6c, 0x12, 0x23, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61,
+	0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
 	0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72,
-	0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x20, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1a, 0x12, 0x18, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73,
-	0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c,
-	0x73, 0x12, 0x87, 0x01, 0x0a, 0x04, 0x56, 0x6f, 0x74, 0x65, 0x12, 0x1f, 0x2e, 0x63, 0x6f, 0x73,
-	0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x56, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x63, 0x6f,
+	0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2e,
+	0x82, 0xd3, 0xe4, 0x93, 0x02, 0x28, 0x12, 0x26, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f,
+	0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73,
+	0x2f, 0x7b, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x12, 0x7a,
+	0x0a, 0x09, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x12, 0x24, 0x2e, 0x63, 0x6f,
 	0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72,
-	0x79, 0x56, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3c, 0x82,
-	0xd3, 0xe4, 0x93, 0x02, 0x36, 0x12, 0x34, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67,
-	0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f,
-	0x7b, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x2f, 0x76, 0x6f,
-	0x74, 0x65, 0x73, 0x2f, 0x7b, 0x76, 0x6f, 0x74, 0x65, 0x72, 0x7d, 0x12, 0x82, 0x01, 0x0a, 0x05,
-	0x56, 0x6f, 0x74, 0x65, 0x73, 0x12, 0x20, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67,
-	0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x74, 0x65, 0x73,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x21, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73,
-	0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x74,
-	0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x34, 0x82, 0xd3, 0xe4, 0x93,
-	0x02, 0x2e, 0x12, 0x2c, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f,
-	0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72,
-	0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x2f, 0x76, 0x6f, 0x74, 0x65, 0x73,
-	0x12, 0x7c, 0x0a, 0x06, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x21, 0x2e, 0x63, 0x6f, 0x73,
-	0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e,
-	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75,
-	0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x2b, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x25, 0x12, 0x23, 0x2f, 0x63, 0x6f, 0x73, 0x6d,
-	0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73,
-	0x2f, 0x7b, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x7d, 0x12, 0x97,
-	0x01, 0x0a, 0x07, 0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x12, 0x22, 0x2e, 0x63, 0x6f, 0x73,
-	0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x23,
+	0x79, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x25, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76,
+	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x20, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1a,
+	0x12, 0x18, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31,
+	0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x12, 0x87, 0x01, 0x0a, 0x04, 0x56,
+	0x6f, 0x74, 0x65, 0x12, 0x1f, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f,
+	0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x74, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3c, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x36, 0x12, 0x34,
+	0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70,
+	0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73,
+	0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x2f, 0x76, 0x6f, 0x74, 0x65, 0x73, 0x2f, 0x7b, 0x76, 0x6f,
+	0x74, 0x65, 0x72, 0x7d, 0x12, 0x82, 0x01, 0x0a, 0x05, 0x56, 0x6f, 0x74, 0x65, 0x73, 0x12, 0x20,
 	0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51,
-	0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x43, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x3d, 0x12, 0x3b, 0x2f, 0x63, 0x6f,
+	0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x74, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x21, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31,
+	0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x56, 0x6f, 0x74, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x34, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2e, 0x12, 0x2c, 0x2f, 0x63, 0x6f,
 	0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70,
 	0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f,
-	0x69, 0x64, 0x7d, 0x2f, 0x64, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x73, 0x2f, 0x7b, 0x64, 0x65,
-	0x70, 0x6f, 0x73, 0x69, 0x74, 0x6f, 0x72, 0x7d, 0x12, 0x8e, 0x01, 0x0a, 0x08, 0x44, 0x65, 0x70,
-	0x6f, 0x73, 0x69, 0x74, 0x73, 0x12, 0x23, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67,
-	0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x70, 0x6f, 0x73,
-	0x69, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x63, 0x6f, 0x73,
+	0x69, 0x64, 0x7d, 0x2f, 0x76, 0x6f, 0x74, 0x65, 0x73, 0x12, 0x7c, 0x0a, 0x06, 0x50, 0x61, 0x72,
+	0x61, 0x6d, 0x73, 0x12, 0x21, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e,
+	0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61,
+	0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2b, 0x82, 0xd3, 0xe4, 0x93,
+	0x02, 0x25, 0x12, 0x23, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f,
+	0x76, 0x31, 0x2f, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x2f, 0x7b, 0x70, 0x61, 0x72, 0x61, 0x6d,
+	0x73, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x7d, 0x12, 0x97, 0x01, 0x0a, 0x07, 0x44, 0x65, 0x70, 0x6f,
+	0x73, 0x69, 0x74, 0x12, 0x22, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x23, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73,
+	0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x70,
+	0x6f, 0x73, 0x69, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x43, 0x82, 0xd3,
+	0xe4, 0x93, 0x02, 0x3d, 0x12, 0x3b, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f,
+	0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b,
+	0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x2f, 0x64, 0x65, 0x70,
+	0x6f, 0x73, 0x69, 0x74, 0x73, 0x2f, 0x7b, 0x64, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x6f, 0x72,
+	0x7d, 0x12, 0x8e, 0x01, 0x0a, 0x08, 0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x73, 0x12, 0x23,
+	0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x37, 0x82, 0xd3, 0xe4, 0x93, 0x02,
+	0x31, 0x12, 0x2f, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76,
+	0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72, 0x6f,
+	0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x2f, 0x64, 0x65, 0x70, 0x6f, 0x73, 0x69,
+	0x74, 0x73, 0x12, 0x94, 0x01, 0x0a, 0x0b, 0x54, 0x61, 0x6c, 0x6c, 0x79, 0x52, 0x65, 0x73, 0x75,
+	0x6c, 0x74, 0x12, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e,
+	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x6c, 0x6c, 0x79, 0x52, 0x65, 0x73,
+	0x75, 0x6c, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x27, 0x2e, 0x63, 0x6f, 0x73,
 	0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x37, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x31, 0x12, 0x2f, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
-	0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61,
-	0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d,
-	0x2f, 0x64, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x73, 0x12, 0x94, 0x01, 0x0a, 0x0b, 0x54, 0x61,
-	0x6c, 0x6c, 0x79, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x12, 0x26, 0x2e, 0x63, 0x6f, 0x73, 0x6d,
-	0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54,
-	0x61, 0x6c, 0x6c, 0x79, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x27, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76,
-	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x6c, 0x6c, 0x79, 0x52, 0x65, 0x73, 0x75,
-	0x6c, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x34, 0x82, 0xd3, 0xe4, 0x93,
-	0x02, 0x2e, 0x12, 0x2c, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f,
-	0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72,
-	0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f, 0x69, 0x64, 0x7d, 0x2f, 0x74, 0x61, 0x6c, 0x6c, 0x79,
-	0x12, 0x92, 0x01, 0x0a, 0x0f, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74,
-	0x69, 0x76, 0x65, 0x73, 0x12, 0x2a, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f,
+	0x54, 0x61, 0x6c, 0x6c, 0x79, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x34, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2e, 0x12, 0x2c, 0x2f, 0x63, 0x6f,
+	0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x70,
+	0x6f, 0x73, 0x61, 0x6c, 0x73, 0x2f, 0x7b, 0x70, 0x72, 0x6f, 0x70, 0x6f, 0x73, 0x61, 0x6c, 0x5f,
+	0x69, 0x64, 0x7d, 0x2f, 0x74, 0x61, 0x6c, 0x6c, 0x79, 0x12, 0x92, 0x01, 0x0a, 0x0f, 0x52, 0x65,
+	0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x12, 0x2a, 0x2e,
+	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76,
+	0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e, 0x63, 0x6f, 0x73, 0x6d,
+	0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52,
+	0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x20, 0x12, 0x1e,
+	0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x72,
+	0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x12, 0xa5,
+	0x01, 0x0a, 0x0e, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76,
+	0x65, 0x12, 0x29, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76,
+	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74,
+	0x61, 0x74, 0x69, 0x76, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2a, 0x2e, 0x63,
+	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3c, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x36,
+	0x12, 0x34, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31,
+	0x2f, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73,
+	0x2f, 0x7b, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65,
+	0x5f, 0x61, 0x64, 0x64, 0x72, 0x7d, 0x12, 0xd5, 0x01, 0x0a, 0x1a, 0x52, 0x65, 0x70, 0x72, 0x65,
+	0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50,
+	0x6f, 0x77, 0x65, 0x72, 0x73, 0x12, 0x35, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67,
+	0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65,
+	0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50,
+	0x6f, 0x77, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x36, 0x2e, 0x63,
+	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65,
+	0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x48, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x42, 0x12, 0x40, 0x2f, 0x63,
+	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x72, 0x65, 0x70,
+	0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x2f, 0x7b, 0x72, 0x65,
+	0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x61, 0x64, 0x64,
+	0x72, 0x7d, 0x2f, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x70, 0x6f, 0x77, 0x65, 0x72, 0x12, 0xfe,
+	0x01, 0x0a, 0x22, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76,
+	0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67,
+	0x50, 0x6f, 0x77, 0x65, 0x72, 0x12, 0x3d, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67,
+	0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65,
+	0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x6f, 0x72, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x3e, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f,
 	0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73,
-	0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x2b, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31,
-	0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61,
-	0x74, 0x69, 0x76, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x82,
-	0xd3, 0xe4, 0x93, 0x02, 0x20, 0x12, 0x1e, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67,
-	0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61,
-	0x74, 0x69, 0x76, 0x65, 0x73, 0x12, 0xa5, 0x01, 0x0a, 0x0e, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73,
-	0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x12, 0x29, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f,
-	0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65,
-	0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76,
-	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65,
-	0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x3c, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x36, 0x12, 0x34, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73,
-	0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e,
-	0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x2f, 0x7b, 0x72, 0x65, 0x70, 0x72, 0x65, 0x73, 0x65,
-	0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x61, 0x64, 0x64, 0x72, 0x7d, 0x42, 0x9b, 0x01,
-	0x0a, 0x11, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76,
-	0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50,
-	0x01, 0x5a, 0x24, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f,
-	0x61, 0x70, 0x69, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76,
-	0x31, 0x3b, 0x67, 0x6f, 0x76, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x47, 0x58, 0xaa, 0x02, 0x0d,
-	0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x47, 0x6f, 0x76, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0d,
-	0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5c, 0x47, 0x6f, 0x76, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x19,
-	0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5c, 0x47, 0x6f, 0x76, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50,
-	0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x0f, 0x43, 0x6f, 0x73, 0x6d,
-	0x6f, 0x73, 0x3a, 0x3a, 0x47, 0x6f, 0x76, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
+	0x72, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x59, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x53, 0x12, 0x51, 0x2f, 0x63,
+	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x72, 0x65, 0x70,
+	0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x73, 0x2f, 0x7b, 0x72, 0x65,
+	0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x74, 0x61, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x61, 0x64, 0x64,
+	0x72, 0x7d, 0x2f, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x70, 0x6f, 0x77, 0x65, 0x72, 0x2f, 0x7b,
+	0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x5f, 0x61, 0x64, 0x64, 0x72, 0x7d, 0x12,
+	0xc6, 0x01, 0x0a, 0x1a, 0x44, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f, 0x74,
+	0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x53, 0x68, 0x61, 0x72, 0x65, 0x73, 0x12, 0x35,
+	0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f, 0x74,
+	0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x53, 0x68, 0x61, 0x72, 0x65, 0x73, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x36, 0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67,
+	0x6f, 0x76, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x65, 0x6c, 0x65, 0x67,
+	0x61, 0x74, 0x6f, 0x72, 0x56, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x53,
+	0x68, 0x61, 0x72, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x39, 0x82,
+	0xd3, 0xe4, 0x93, 0x02, 0x33, 0x12, 0x31, 0x2f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67,
+	0x6f, 0x76, 0x2f, 0x76, 0x31, 0x2f, 0x76, 0x6f, 0x74, 0x69, 0x6e, 0x67, 0x70, 0x6f, 0x77, 0x65,
+	0x72, 0x73, 0x68, 0x61, 0x72, 0x65, 0x73, 0x2f, 0x7b, 0x64, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74,
+	0x6f, 0x72, 0x5f, 0x61, 0x64, 0x64, 0x72, 0x7d, 0x42, 0x9b, 0x01, 0x0a, 0x11, 0x63, 0x6f, 0x6d,
+	0x2e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x67, 0x6f, 0x76, 0x2e, 0x76, 0x31, 0x42, 0x0a,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x24, 0x63, 0x6f,
+	0x73, 0x6d, 0x6f, 0x73, 0x73, 0x64, 0x6b, 0x2e, 0x69, 0x6f, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63,
+	0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2f, 0x67, 0x6f, 0x76, 0x2f, 0x76, 0x31, 0x3b, 0x67, 0x6f, 0x76,
+	0x76, 0x31, 0xa2, 0x02, 0x03, 0x43, 0x47, 0x58, 0xaa, 0x02, 0x0d, 0x43, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x2e, 0x47, 0x6f, 0x76, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0d, 0x43, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x5c, 0x47, 0x6f, 0x76, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x19, 0x43, 0x6f, 0x73, 0x6d, 0x6f,
+	0x73, 0x5c, 0x47, 0x6f, 0x76, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x0f, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x3a, 0x3a, 0x47,
+	0x6f, 0x76, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -11780,93 +14879,111 @@ func file_cosmos_gov_v1_query_proto_rawDescGZIP() []byte {
 	return file_cosmos_gov_v1_query_proto_rawDescData
 }
 
-var file_cosmos_gov_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_cosmos_gov_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_cosmos_gov_v1_query_proto_goTypes = []interface{}{
-	(*QueryConstitutionRequest)(nil),     // 0: cosmos.gov.v1.QueryConstitutionRequest
-	(*QueryConstitutionResponse)(nil),    // 1: cosmos.gov.v1.QueryConstitutionResponse
-	(*QueryProposalRequest)(nil),         // 2: cosmos.gov.v1.QueryProposalRequest
-	(*QueryProposalResponse)(nil),        // 3: cosmos.gov.v1.QueryProposalResponse
-	(*QueryProposalsRequest)(nil),        // 4: cosmos.gov.v1.QueryProposalsRequest
-	(*QueryProposalsResponse)(nil),       // 5: cosmos.gov.v1.QueryProposalsResponse
-	(*QueryVoteRequest)(nil),             // 6: cosmos.gov.v1.QueryVoteRequest
-	(*QueryVoteResponse)(nil),            // 7: cosmos.gov.v1.QueryVoteResponse
-	(*QueryVotesRequest)(nil),            // 8: cosmos.gov.v1.QueryVotesRequest
-	(*QueryVotesResponse)(nil),           // 9: cosmos.gov.v1.QueryVotesResponse
-	(*QueryParamsRequest)(nil),           // 10: cosmos.gov.v1.QueryParamsRequest
-	(*QueryParamsResponse)(nil),          // 11: cosmos.gov.v1.QueryParamsResponse
-	(*QueryDepositRequest)(nil),          // 12: cosmos.gov.v1.QueryDepositRequest
-	(*QueryDepositResponse)(nil),         // 13: cosmos.gov.v1.QueryDepositResponse
-	(*QueryDepositsRequest)(nil),         // 14: cosmos.gov.v1.QueryDepositsRequest
-	(*QueryDepositsResponse)(nil),        // 15: cosmos.gov.v1.QueryDepositsResponse
-	(*QueryTallyResultRequest)(nil),      // 16: cosmos.gov.v1.QueryTallyResultRequest
-	(*QueryTallyResultResponse)(nil),     // 17: cosmos.gov.v1.QueryTallyResultResponse
-	(*QueryRepresentativesRequest)(nil),  // 18: cosmos.gov.v1.QueryRepresentativesRequest
-	(*QueryRepresentativesResponse)(nil), // 19: cosmos.gov.v1.QueryRepresentativesResponse
-	(*QueryRepresentativeRequest)(nil),   // 20: cosmos.gov.v1.QueryRepresentativeRequest
-	(*QueryRepresentativeResponse)(nil),  // 21: cosmos.gov.v1.QueryRepresentativeResponse
-	(*Proposal)(nil),                     // 22: cosmos.gov.v1.Proposal
-	(ProposalStatus)(0),                  // 23: cosmos.gov.v1.ProposalStatus
-	(*v1beta1.PageRequest)(nil),          // 24: cosmos.base.query.v1beta1.PageRequest
-	(*v1beta1.PageResponse)(nil),         // 25: cosmos.base.query.v1beta1.PageResponse
-	(*Vote)(nil),                         // 26: cosmos.gov.v1.Vote
-	(*VotingParams)(nil),                 // 27: cosmos.gov.v1.VotingParams
-	(*DepositParams)(nil),                // 28: cosmos.gov.v1.DepositParams
-	(*TallyParams)(nil),                  // 29: cosmos.gov.v1.TallyParams
-	(*Params)(nil),                       // 30: cosmos.gov.v1.Params
-	(*Deposit)(nil),                      // 31: cosmos.gov.v1.Deposit
-	(*TallyResult)(nil),                  // 32: cosmos.gov.v1.TallyResult
-	(*Representative)(nil),               // 33: cosmos.gov.v1.Representative
+	(*QueryConstitutionRequest)(nil),                        // 0: cosmos.gov.v1.QueryConstitutionRequest
+	(*QueryConstitutionResponse)(nil),                       // 1: cosmos.gov.v1.QueryConstitutionResponse
+	(*QueryProposalRequest)(nil),                            // 2: cosmos.gov.v1.QueryProposalRequest
+	(*QueryProposalResponse)(nil),                           // 3: cosmos.gov.v1.QueryProposalResponse
+	(*QueryProposalsRequest)(nil),                           // 4: cosmos.gov.v1.QueryProposalsRequest
+	(*QueryProposalsResponse)(nil),                          // 5: cosmos.gov.v1.QueryProposalsResponse
+	(*QueryVoteRequest)(nil),                                // 6: cosmos.gov.v1.QueryVoteRequest
+	(*QueryVoteResponse)(nil),                               // 7: cosmos.gov.v1.QueryVoteResponse
+	(*QueryVotesRequest)(nil),                               // 8: cosmos.gov.v1.QueryVotesRequest
+	(*QueryVotesResponse)(nil),                              // 9: cosmos.gov.v1.QueryVotesResponse
+	(*QueryParamsRequest)(nil),                              // 10: cosmos.gov.v1.QueryParamsRequest
+	(*QueryParamsResponse)(nil),                             // 11: cosmos.gov.v1.QueryParamsResponse
+	(*QueryDepositRequest)(nil),                             // 12: cosmos.gov.v1.QueryDepositRequest
+	(*QueryDepositResponse)(nil),                            // 13: cosmos.gov.v1.QueryDepositResponse
+	(*QueryDepositsRequest)(nil),                            // 14: cosmos.gov.v1.QueryDepositsRequest
+	(*QueryDepositsResponse)(nil),                           // 15: cosmos.gov.v1.QueryDepositsResponse
+	(*QueryTallyResultRequest)(nil),                         // 16: cosmos.gov.v1.QueryTallyResultRequest
+	(*QueryTallyResultResponse)(nil),                        // 17: cosmos.gov.v1.QueryTallyResultResponse
+	(*QueryRepresentativesRequest)(nil),                     // 18: cosmos.gov.v1.QueryRepresentativesRequest
+	(*QueryRepresentativesResponse)(nil),                    // 19: cosmos.gov.v1.QueryRepresentativesResponse
+	(*QueryRepresentativeRequest)(nil),                      // 20: cosmos.gov.v1.QueryRepresentativeRequest
+	(*QueryRepresentativeResponse)(nil),                     // 21: cosmos.gov.v1.QueryRepresentativeResponse
+	(*QueryRepresentativeVotingPowersRequest)(nil),          // 22: cosmos.gov.v1.QueryRepresentativeVotingPowersRequest
+	(*QueryRepresentativeVotingPowersResponse)(nil),         // 23: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse
+	(*QueryRepresentativeValidatorVotingPowerRequest)(nil),  // 24: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest
+	(*QueryRepresentativeValidatorVotingPowerResponse)(nil), // 25: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse
+	(*QueryDelegatorVotingPowerSharesRequest)(nil),          // 26: cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest
+	(*QueryDelegatorVotingPowerSharesResponse)(nil),         // 27: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse
+	(*Proposal)(nil),                                        // 28: cosmos.gov.v1.Proposal
+	(ProposalStatus)(0),                                     // 29: cosmos.gov.v1.ProposalStatus
+	(*v1beta1.PageRequest)(nil),                             // 30: cosmos.base.query.v1beta1.PageRequest
+	(*v1beta1.PageResponse)(nil),                            // 31: cosmos.base.query.v1beta1.PageResponse
+	(*Vote)(nil),                                            // 32: cosmos.gov.v1.Vote
+	(*VotingParams)(nil),                                    // 33: cosmos.gov.v1.VotingParams
+	(*DepositParams)(nil),                                   // 34: cosmos.gov.v1.DepositParams
+	(*TallyParams)(nil),                                     // 35: cosmos.gov.v1.TallyParams
+	(*Params)(nil),                                          // 36: cosmos.gov.v1.Params
+	(*Deposit)(nil),                                         // 37: cosmos.gov.v1.Deposit
+	(*TallyResult)(nil),                                     // 38: cosmos.gov.v1.TallyResult
+	(*Representative)(nil),                                  // 39: cosmos.gov.v1.Representative
+	(*VotingPowerRep)(nil),                                  // 40: cosmos.gov.v1.VotingPowerRep
+	(*VotingPowerDelShares)(nil),                            // 41: cosmos.gov.v1.VotingPowerDelShares
 }
 var file_cosmos_gov_v1_query_proto_depIdxs = []int32{
-	22, // 0: cosmos.gov.v1.QueryProposalResponse.proposal:type_name -> cosmos.gov.v1.Proposal
-	23, // 1: cosmos.gov.v1.QueryProposalsRequest.proposal_status:type_name -> cosmos.gov.v1.ProposalStatus
-	24, // 2: cosmos.gov.v1.QueryProposalsRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	22, // 3: cosmos.gov.v1.QueryProposalsResponse.proposals:type_name -> cosmos.gov.v1.Proposal
-	25, // 4: cosmos.gov.v1.QueryProposalsResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	26, // 5: cosmos.gov.v1.QueryVoteResponse.vote:type_name -> cosmos.gov.v1.Vote
-	24, // 6: cosmos.gov.v1.QueryVotesRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	26, // 7: cosmos.gov.v1.QueryVotesResponse.votes:type_name -> cosmos.gov.v1.Vote
-	25, // 8: cosmos.gov.v1.QueryVotesResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	27, // 9: cosmos.gov.v1.QueryParamsResponse.voting_params:type_name -> cosmos.gov.v1.VotingParams
-	28, // 10: cosmos.gov.v1.QueryParamsResponse.deposit_params:type_name -> cosmos.gov.v1.DepositParams
-	29, // 11: cosmos.gov.v1.QueryParamsResponse.tally_params:type_name -> cosmos.gov.v1.TallyParams
-	30, // 12: cosmos.gov.v1.QueryParamsResponse.params:type_name -> cosmos.gov.v1.Params
-	31, // 13: cosmos.gov.v1.QueryDepositResponse.deposit:type_name -> cosmos.gov.v1.Deposit
-	24, // 14: cosmos.gov.v1.QueryDepositsRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	31, // 15: cosmos.gov.v1.QueryDepositsResponse.deposits:type_name -> cosmos.gov.v1.Deposit
-	25, // 16: cosmos.gov.v1.QueryDepositsResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	32, // 17: cosmos.gov.v1.QueryTallyResultResponse.tally:type_name -> cosmos.gov.v1.TallyResult
-	24, // 18: cosmos.gov.v1.QueryRepresentativesRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
-	33, // 19: cosmos.gov.v1.QueryRepresentativesResponse.representatives:type_name -> cosmos.gov.v1.Representative
-	25, // 20: cosmos.gov.v1.QueryRepresentativesResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
-	33, // 21: cosmos.gov.v1.QueryRepresentativeResponse.representative:type_name -> cosmos.gov.v1.Representative
-	0,  // 22: cosmos.gov.v1.Query.Constitution:input_type -> cosmos.gov.v1.QueryConstitutionRequest
-	2,  // 23: cosmos.gov.v1.Query.Proposal:input_type -> cosmos.gov.v1.QueryProposalRequest
-	4,  // 24: cosmos.gov.v1.Query.Proposals:input_type -> cosmos.gov.v1.QueryProposalsRequest
-	6,  // 25: cosmos.gov.v1.Query.Vote:input_type -> cosmos.gov.v1.QueryVoteRequest
-	8,  // 26: cosmos.gov.v1.Query.Votes:input_type -> cosmos.gov.v1.QueryVotesRequest
-	10, // 27: cosmos.gov.v1.Query.Params:input_type -> cosmos.gov.v1.QueryParamsRequest
-	12, // 28: cosmos.gov.v1.Query.Deposit:input_type -> cosmos.gov.v1.QueryDepositRequest
-	14, // 29: cosmos.gov.v1.Query.Deposits:input_type -> cosmos.gov.v1.QueryDepositsRequest
-	16, // 30: cosmos.gov.v1.Query.TallyResult:input_type -> cosmos.gov.v1.QueryTallyResultRequest
-	18, // 31: cosmos.gov.v1.Query.Representatives:input_type -> cosmos.gov.v1.QueryRepresentativesRequest
-	20, // 32: cosmos.gov.v1.Query.Representative:input_type -> cosmos.gov.v1.QueryRepresentativeRequest
-	1,  // 33: cosmos.gov.v1.Query.Constitution:output_type -> cosmos.gov.v1.QueryConstitutionResponse
-	3,  // 34: cosmos.gov.v1.Query.Proposal:output_type -> cosmos.gov.v1.QueryProposalResponse
-	5,  // 35: cosmos.gov.v1.Query.Proposals:output_type -> cosmos.gov.v1.QueryProposalsResponse
-	7,  // 36: cosmos.gov.v1.Query.Vote:output_type -> cosmos.gov.v1.QueryVoteResponse
-	9,  // 37: cosmos.gov.v1.Query.Votes:output_type -> cosmos.gov.v1.QueryVotesResponse
-	11, // 38: cosmos.gov.v1.Query.Params:output_type -> cosmos.gov.v1.QueryParamsResponse
-	13, // 39: cosmos.gov.v1.Query.Deposit:output_type -> cosmos.gov.v1.QueryDepositResponse
-	15, // 40: cosmos.gov.v1.Query.Deposits:output_type -> cosmos.gov.v1.QueryDepositsResponse
-	17, // 41: cosmos.gov.v1.Query.TallyResult:output_type -> cosmos.gov.v1.QueryTallyResultResponse
-	19, // 42: cosmos.gov.v1.Query.Representatives:output_type -> cosmos.gov.v1.QueryRepresentativesResponse
-	21, // 43: cosmos.gov.v1.Query.Representative:output_type -> cosmos.gov.v1.QueryRepresentativeResponse
-	33, // [33:44] is the sub-list for method output_type
-	22, // [22:33] is the sub-list for method input_type
-	22, // [22:22] is the sub-list for extension type_name
-	22, // [22:22] is the sub-list for extension extendee
-	0,  // [0:22] is the sub-list for field type_name
+	28, // 0: cosmos.gov.v1.QueryProposalResponse.proposal:type_name -> cosmos.gov.v1.Proposal
+	29, // 1: cosmos.gov.v1.QueryProposalsRequest.proposal_status:type_name -> cosmos.gov.v1.ProposalStatus
+	30, // 2: cosmos.gov.v1.QueryProposalsRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	28, // 3: cosmos.gov.v1.QueryProposalsResponse.proposals:type_name -> cosmos.gov.v1.Proposal
+	31, // 4: cosmos.gov.v1.QueryProposalsResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	32, // 5: cosmos.gov.v1.QueryVoteResponse.vote:type_name -> cosmos.gov.v1.Vote
+	30, // 6: cosmos.gov.v1.QueryVotesRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	32, // 7: cosmos.gov.v1.QueryVotesResponse.votes:type_name -> cosmos.gov.v1.Vote
+	31, // 8: cosmos.gov.v1.QueryVotesResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	33, // 9: cosmos.gov.v1.QueryParamsResponse.voting_params:type_name -> cosmos.gov.v1.VotingParams
+	34, // 10: cosmos.gov.v1.QueryParamsResponse.deposit_params:type_name -> cosmos.gov.v1.DepositParams
+	35, // 11: cosmos.gov.v1.QueryParamsResponse.tally_params:type_name -> cosmos.gov.v1.TallyParams
+	36, // 12: cosmos.gov.v1.QueryParamsResponse.params:type_name -> cosmos.gov.v1.Params
+	37, // 13: cosmos.gov.v1.QueryDepositResponse.deposit:type_name -> cosmos.gov.v1.Deposit
+	30, // 14: cosmos.gov.v1.QueryDepositsRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	37, // 15: cosmos.gov.v1.QueryDepositsResponse.deposits:type_name -> cosmos.gov.v1.Deposit
+	31, // 16: cosmos.gov.v1.QueryDepositsResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	38, // 17: cosmos.gov.v1.QueryTallyResultResponse.tally:type_name -> cosmos.gov.v1.TallyResult
+	30, // 18: cosmos.gov.v1.QueryRepresentativesRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	39, // 19: cosmos.gov.v1.QueryRepresentativesResponse.representatives:type_name -> cosmos.gov.v1.Representative
+	31, // 20: cosmos.gov.v1.QueryRepresentativesResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	39, // 21: cosmos.gov.v1.QueryRepresentativeResponse.representative:type_name -> cosmos.gov.v1.Representative
+	40, // 22: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.rep_voting_power:type_name -> cosmos.gov.v1.VotingPowerRep
+	31, // 23: cosmos.gov.v1.QueryRepresentativeVotingPowersResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	40, // 24: cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse.rep_voting_power:type_name -> cosmos.gov.v1.VotingPowerRep
+	41, // 25: cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse.voting_power_shares:type_name -> cosmos.gov.v1.VotingPowerDelShares
+	0,  // 26: cosmos.gov.v1.Query.Constitution:input_type -> cosmos.gov.v1.QueryConstitutionRequest
+	2,  // 27: cosmos.gov.v1.Query.Proposal:input_type -> cosmos.gov.v1.QueryProposalRequest
+	4,  // 28: cosmos.gov.v1.Query.Proposals:input_type -> cosmos.gov.v1.QueryProposalsRequest
+	6,  // 29: cosmos.gov.v1.Query.Vote:input_type -> cosmos.gov.v1.QueryVoteRequest
+	8,  // 30: cosmos.gov.v1.Query.Votes:input_type -> cosmos.gov.v1.QueryVotesRequest
+	10, // 31: cosmos.gov.v1.Query.Params:input_type -> cosmos.gov.v1.QueryParamsRequest
+	12, // 32: cosmos.gov.v1.Query.Deposit:input_type -> cosmos.gov.v1.QueryDepositRequest
+	14, // 33: cosmos.gov.v1.Query.Deposits:input_type -> cosmos.gov.v1.QueryDepositsRequest
+	16, // 34: cosmos.gov.v1.Query.TallyResult:input_type -> cosmos.gov.v1.QueryTallyResultRequest
+	18, // 35: cosmos.gov.v1.Query.Representatives:input_type -> cosmos.gov.v1.QueryRepresentativesRequest
+	20, // 36: cosmos.gov.v1.Query.Representative:input_type -> cosmos.gov.v1.QueryRepresentativeRequest
+	22, // 37: cosmos.gov.v1.Query.RepresentativeVotingPowers:input_type -> cosmos.gov.v1.QueryRepresentativeVotingPowersRequest
+	24, // 38: cosmos.gov.v1.Query.RepresentativeValidatorVotingPower:input_type -> cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerRequest
+	26, // 39: cosmos.gov.v1.Query.DelegatorVotingPowerShares:input_type -> cosmos.gov.v1.QueryDelegatorVotingPowerSharesRequest
+	1,  // 40: cosmos.gov.v1.Query.Constitution:output_type -> cosmos.gov.v1.QueryConstitutionResponse
+	3,  // 41: cosmos.gov.v1.Query.Proposal:output_type -> cosmos.gov.v1.QueryProposalResponse
+	5,  // 42: cosmos.gov.v1.Query.Proposals:output_type -> cosmos.gov.v1.QueryProposalsResponse
+	7,  // 43: cosmos.gov.v1.Query.Vote:output_type -> cosmos.gov.v1.QueryVoteResponse
+	9,  // 44: cosmos.gov.v1.Query.Votes:output_type -> cosmos.gov.v1.QueryVotesResponse
+	11, // 45: cosmos.gov.v1.Query.Params:output_type -> cosmos.gov.v1.QueryParamsResponse
+	13, // 46: cosmos.gov.v1.Query.Deposit:output_type -> cosmos.gov.v1.QueryDepositResponse
+	15, // 47: cosmos.gov.v1.Query.Deposits:output_type -> cosmos.gov.v1.QueryDepositsResponse
+	17, // 48: cosmos.gov.v1.Query.TallyResult:output_type -> cosmos.gov.v1.QueryTallyResultResponse
+	19, // 49: cosmos.gov.v1.Query.Representatives:output_type -> cosmos.gov.v1.QueryRepresentativesResponse
+	21, // 50: cosmos.gov.v1.Query.Representative:output_type -> cosmos.gov.v1.QueryRepresentativeResponse
+	23, // 51: cosmos.gov.v1.Query.RepresentativeVotingPowers:output_type -> cosmos.gov.v1.QueryRepresentativeVotingPowersResponse
+	25, // 52: cosmos.gov.v1.Query.RepresentativeValidatorVotingPower:output_type -> cosmos.gov.v1.QueryRepresentativeValidatorVotingPowerResponse
+	27, // 53: cosmos.gov.v1.Query.DelegatorVotingPowerShares:output_type -> cosmos.gov.v1.QueryDelegatorVotingPowerSharesResponse
+	40, // [40:54] is the sub-list for method output_type
+	26, // [26:40] is the sub-list for method input_type
+	26, // [26:26] is the sub-list for extension type_name
+	26, // [26:26] is the sub-list for extension extendee
+	0,  // [0:26] is the sub-list for field type_name
 }
 
 func init() { file_cosmos_gov_v1_query_proto_init() }
@@ -12140,6 +15257,78 @@ func file_cosmos_gov_v1_query_proto_init() {
 				return nil
 			}
 		}
+		file_cosmos_gov_v1_query_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryRepresentativeVotingPowersRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cosmos_gov_v1_query_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryRepresentativeVotingPowersResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cosmos_gov_v1_query_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryRepresentativeValidatorVotingPowerRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cosmos_gov_v1_query_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryRepresentativeValidatorVotingPowerResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cosmos_gov_v1_query_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryDelegatorVotingPowerSharesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cosmos_gov_v1_query_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryDelegatorVotingPowerSharesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -12147,7 +15336,7 @@ func file_cosmos_gov_v1_query_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_cosmos_gov_v1_query_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

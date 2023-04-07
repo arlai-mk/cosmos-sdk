@@ -1129,7 +1129,7 @@ type MsgClient interface {
 	CancelProposal(ctx context.Context, in *MsgCancelProposal, opts ...grpc.CallOption) (*MsgCancelProposalResponse, error)
 	// CreateRepresentative defines a method for creating a new representative.
 	CreateRepresentative(ctx context.Context, in *MsgCreateRepresentative, opts ...grpc.CallOption) (*MsgCreateRepresentativeResponse, error)
-	// ShareVotingPower defines a method for creating a new representative.
+	// ShareVotingPower defines a method for sharing a delegator's voting power among representatives.
 	ShareVotingPower(ctx context.Context, in *MsgShareVotingPower, opts ...grpc.CallOption) (*MsgShareVotingPowerResponse, error)
 }
 
@@ -1246,7 +1246,7 @@ type MsgServer interface {
 	CancelProposal(context.Context, *MsgCancelProposal) (*MsgCancelProposalResponse, error)
 	// CreateRepresentative defines a method for creating a new representative.
 	CreateRepresentative(context.Context, *MsgCreateRepresentative) (*MsgCreateRepresentativeResponse, error)
-	// ShareVotingPower defines a method for creating a new representative.
+	// ShareVotingPower defines a method for sharing a delegator's voting power among representatives.
 	ShareVotingPower(context.Context, *MsgShareVotingPower) (*MsgShareVotingPowerResponse, error)
 }
 

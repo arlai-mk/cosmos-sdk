@@ -67,6 +67,20 @@ service Query {
     option (google.api.http).get = "/cosmos/gov/v1/representatives/{representative_addr}";
   }
 
+  // RepresentativeVotingPowers queries voting power spread among all validators for given representative address.
+  rpc RepresentativeVotingPowers(QueryRepresentativeVotingPowersRequest) returns (QueryRepresentativeVotingPowersResponse) {
+    option (google.api.http).get = "/cosmos/gov/v1/representatives/{representative_addr}/votingpower";
+  }
+
+  // RepresentativeValidatorVotingPower queries voting power for given representative address and specific validator.
+  rpc RepresentativeValidatorVotingPower(QueryRepresentativeValidatorVotingPowerRequest) returns (QueryRepresentativeValidatorVotingPowerResponse) {
+    option (google.api.http).get = "/cosmos/gov/v1/representatives/{representative_addr}/votingpower/{validator_addr}";
+  }
+
+  // DelegatorVotingPowerShares queries the voting power shares among representatives from a specific delegator
+  rpc DelegatorVotingPowerShares(QueryDelegatorVotingPowerSharesRequest) returns (QueryDelegatorVotingPowerSharesResponse) {
+    option (google.api.http).get = "/cosmos/gov/v1/votingpowershares/{delegator_addr}";
+  }
 }
 
 // QueryConstitutionRequest is the request type for the Query/Constitution RPC method
@@ -231,7 +245,7 @@ message QueryRepresentativesResponse {
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
-// QueryRepresentativeRequest is response type for the Query/Representative RPC method
+// QueryRepresentativeRequest is request type for the Query/Representative RPC method
 message QueryRepresentativeRequest {
   // representative_addr defines the representative address to query for.
   string representative_addr = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
@@ -241,4 +255,43 @@ message QueryRepresentativeRequest {
 message QueryRepresentativeResponse {
   // representative defines the representative info.
   Representative representative = 1;
+}
+
+// QueryRepresentativeVotingPowersRequest is request type for the Query/RepresentativeVotingPowers RPC method
+message QueryRepresentativeVotingPowersRequest {
+  // representative_addr defines the representative address to query for.
+  string representative_addr = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+}
+
+// QueryRepresentativeVotingPowersReponse is response type for the Query/RepresentativeVotingPowers RPC method
+message QueryRepresentativeVotingPowersResponse {
+  repeated VotingPowerRep rep_voting_power = 1;
+
+  // pagination defines the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// QueryRepresentativeValidatorVotingPowerRequest is request type for the Query/RepresentativeValidatorVotingPower RPC method
+message QueryRepresentativeValidatorVotingPowerRequest {
+  // representative_addr defines the representative address to query for.
+  string representative_addr = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  
+  // validator_addr defines the validator address to query for.
+  string validator_addr = 2 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+}
+
+// QueryRepresentativeValidatorVotingPowerReponse is response type for the Query/RepresentativeValidatorVotingPower RPC method
+message QueryRepresentativeValidatorVotingPowerResponse {
+  VotingPowerRep rep_voting_power = 1;
+}
+
+// QueryDelegatorVotingPowerSharesRequest is request type for the Query/DelegatorVotingPowerShares RPC method
+message QueryDelegatorVotingPowerSharesRequest {
+  // delegator_addr defines the delegator address to query for.
+  string delegator_addr = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+}
+
+// QueryDelegatorVotingPowerSharesResponse is reponse type for the Query/DelegatorVotingPowerShares RPC method
+message QueryDelegatorVotingPowerSharesResponse {
+  VotingPowerDelShares voting_power_shares = 1;
 }
