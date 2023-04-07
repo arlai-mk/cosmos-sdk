@@ -82,6 +82,7 @@ func NewTxCmd(legacyPropCmds []*cobra.Command) *cobra.Command {
 		NewCmdDraftProposal(),
 		NewCmdCancelProposal(),
 		NewCmdCreateRepresentative(),
+		NewCmdShareVotingPower(),
 
 		// Deprecated
 		cmdSubmitLegacyProp,
@@ -480,4 +481,31 @@ func flagSetDescriptionCreate() *flag.FlagSet {
 	fs.String(FlagDetails, "", "The representative's (optional) details")
 
 	return fs
+}
+
+// NewCmdShareVotingPower returns a CLI command handler for signalling
+// voting power share among representatives.
+func NewCmdShareVotingPower() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "share-voting-power [delegation_share]",
+		Short: `Signal representatives voting power share intent.`,
+		Long: `signal representatives voting power share intent by providing a comma separated string
+containing a decimal weight and the bech32 representative address,
+e.g. "0.3cosmos1xxxxxxxxx,0.3cosmos1yyyyyyyyy,0.4cosmos1zzzzzzzzz"`,
+		Example: `share-voting-power 0.3cosmos1xxxxxxxxx,0.3cosmos1yyyyyyyyy,0.4cosmos1zzzzzzzzz`,
+		Args:    cobra.ExactArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			msg := v1.NewMsgShareVotingPower(args[0], clientCtx.GetFromAddress())
+
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
+		},
+	}
+	flags.AddTxFlagsToCmd(cmd)
+
+	return cmd
 }

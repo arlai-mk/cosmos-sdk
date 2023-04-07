@@ -25,6 +25,8 @@ type StakingKeeper interface {
 		ctx sdk.Context, delegator sdk.AccAddress,
 		fn func(index int64, delegation stakingtypes.DelegationI) (stop bool),
 	)
+
+	Validator(sdk.Context, sdk.ValAddress) stakingtypes.ValidatorI // get a particular validator by operator address
 }
 
 // DistributionKeeper defines the expected distribution keeper (noalias)

@@ -22,15 +22,24 @@ func (k Keeper) GetRepresentative(ctx sdk.Context, representativeID uint64) (rep
 	return representative, true
 }
 
-func (k Keeper) GetRepresentativeByAddr(ctx sdk.Context, repAddr sdk.AccAddress) (representative v1.Representative, found bool) {
+func (k Keeper) GetRepresentativeIDByAddr(ctx sdk.Context, repAddr sdk.AccAddress) (representativeID uint64, found bool) {
 	store := ctx.KVStore(k.storeKey)
 
-	representativeID := store.Get(govtypes.RepresentativeIDByAddrKey(repAddr))
-	if representativeID == nil {
+	representativeIDBytes := store.Get(govtypes.RepresentativeIDByAddrKey(repAddr))
+	if representativeIDBytes == nil {
+		return representativeID, false
+	}
+
+	return govtypes.GetRepresentativeIDFromBytes(representativeIDBytes), true
+}
+
+func (k Keeper) GetRepresentativeByAddr(ctx sdk.Context, repAddr sdk.AccAddress) (representative v1.Representative, found bool) {
+	representativeID, found := k.GetRepresentativeIDByAddr(ctx, repAddr)
+	if found == false {
 		return representative, false
 	}
 
-	return k.GetRepresentative(ctx, govtypes.GetRepresentativeIDFromBytes(representativeID))
+	return k.GetRepresentative(ctx, representativeID)
 }
 
 // set the main record holding representative details

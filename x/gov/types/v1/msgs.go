@@ -1,13 +1,17 @@
 package v1
 
 import (
+	"errors"
 	"fmt"
+	"regexp"
+	"strings"
 
 	errorsmod "cosmossdk.io/errors"
 	"cosmossdk.io/math"
 
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/types/bech32"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	sdktx "github.com/cosmos/cosmos-sdk/types/tx"
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
@@ -370,4 +374,111 @@ func (msg MsgCreateRepresentative) ValidateBasic() error {
 	}
 
 	return nil
+}
+
+// NewMsgShareVotingPower - construct a msg to update the share of voting power from a delegator.
+func NewMsgShareVotingPower(vpShares string, fromAddress sdk.Address) *MsgShareVotingPower {
+	return &MsgShareVotingPower{VotingPowerShares: vpShares, DelegatorAddress: fromAddress.String()}
+}
+
+// ValidateBasic Implements Msg.
+func (msg MsgShareVotingPower) ValidateBasic() error {
+	if _, err := sdk.AccAddressFromBech32(msg.DelegatorAddress); err != nil {
+		return err
+	}
+
+	wantSum := sdk.OneDec()
+	weightSum := sdk.NewDec(0)
+	vpShares, err := VPSharesFromString(msg.VotingPowerShares)
+	if err != nil {
+		return err
+	}
+
+	for i, vpShare := range vpShares {
+		if _, _, err := bech32.DecodeAndConvert(vpShare.RepresentativeAddress); err != nil {
+			return fmt.Errorf("VPShare_%02d_RepresentativeAddress: %s", i, err.Error())
+		}
+
+		if vpShare.Percentage.GT(wantSum) {
+			return fmt.Errorf("VPShare_%02d_Percentage: percentage %d overruns maximum of %v", i, vpShare.Percentage, wantSum)
+		}
+		weightSum = weightSum.Add(vpShare.Percentage)
+	}
+
+	if !weightSum.Equal(wantSum) {
+		return fmt.Errorf("VPSharesPercentages: sum of percentages is %v, not %v", weightSum, wantSum)
+	}
+
+	return nil
+}
+
+// GetSignBytes Implements Msg.
+func (msg MsgShareVotingPower) GetSignBytes() []byte {
+	bz := codec.ModuleCdc.MustMarshalJSON(&msg)
+	return sdk.MustSortJSON(bz)
+}
+
+// GetSigners Implements Msg.
+func (msg MsgShareVotingPower) GetSigners() []sdk.AccAddress {
+	delegatorAddress, _ := sdk.AccAddressFromBech32(msg.DelegatorAddress)
+	return []sdk.AccAddress{delegatorAddress}
+}
+
+// Temporary type for ValidateBasic
+type VotingPowerDelShareBasic struct {
+	RepresentativeAddress string
+	Percentage            sdk.Dec
+}
+
+// VPSharesFromString parses and validates the given string into a slice
+// containing pointers to VotingPowerDelShareBasic.
+//
+// The combined weights must be 1.0 and the representative addresses must be valid
+// bech32 strings.
+//
+// Shares are comma separated, e.g.
+// "0.3cosmos1xxxxxxxxx,0.3cosmos1yyyyyyyyy,0.4cosmos1zzzzzzzzz".
+func VPSharesFromString(input string) ([]*VotingPowerDelShareBasic, error) {
+
+	bech32PrefixAddr := sdk.GetConfig().GetBech32AccountAddrPrefix()
+
+	// regexp defining what an vp share looks like:
+	// {value}{address}
+	iexpr := regexp.MustCompile(fmt.Sprintf(`(0\.\d+)(%s1\w+)`, bech32PrefixAddr))
+	// regexp defining what the vp share string looks like:
+	// {vp share}(,{vp share})...
+	pexpr := regexp.MustCompile(fmt.Sprintf("^%s(,%s)*$", iexpr.String(), iexpr.String()))
+	if !pexpr.MatchString(input) {
+		return nil, errors.New("invalid vp shares string")
+	}
+
+	out := []*VotingPowerDelShareBasic{}
+
+	wsum := sdk.ZeroDec()
+	istrs := strings.Split(input, ",")
+	for i, istr := range istrs {
+		wstr := iexpr.ReplaceAllString(istr, "$1")
+		weight, err := sdk.NewDecFromStr(wstr)
+		if err != nil {
+			return nil, fmt.Errorf("vp share [%v]: %w", i, err)
+		}
+
+		if !weight.IsPositive() {
+			return nil, fmt.Errorf("vp share [%v]: must not be negative nor zero", i)
+		}
+
+		wsum = wsum.Add(weight)
+
+		v := &VotingPowerDelShareBasic{
+			iexpr.ReplaceAllString(istr, "$2"),
+			weight,
+		}
+		out = append(out, v)
+	}
+
+	if !wsum.Equal(sdk.OneDec()) {
+		return nil, errors.New("combined weight (percentage) must be 1.0")
+	}
+
+	return out, nil
 }

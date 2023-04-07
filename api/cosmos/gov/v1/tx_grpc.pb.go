@@ -29,6 +29,7 @@ const (
 	Msg_UpdateParams_FullMethodName         = "/cosmos.gov.v1.Msg/UpdateParams"
 	Msg_CancelProposal_FullMethodName       = "/cosmos.gov.v1.Msg/CancelProposal"
 	Msg_CreateRepresentative_FullMethodName = "/cosmos.gov.v1.Msg/CreateRepresentative"
+	Msg_ShareVotingPower_FullMethodName     = "/cosmos.gov.v1.Msg/ShareVotingPower"
 )
 
 // MsgClient is the client API for Msg service.
@@ -57,6 +58,8 @@ type MsgClient interface {
 	CancelProposal(ctx context.Context, in *MsgCancelProposal, opts ...grpc.CallOption) (*MsgCancelProposalResponse, error)
 	// CreateRepresentative defines a method for creating a new representative.
 	CreateRepresentative(ctx context.Context, in *MsgCreateRepresentative, opts ...grpc.CallOption) (*MsgCreateRepresentativeResponse, error)
+	// ShareVotingPower defines a method for creating a new representative.
+	ShareVotingPower(ctx context.Context, in *MsgShareVotingPower, opts ...grpc.CallOption) (*MsgShareVotingPowerResponse, error)
 }
 
 type msgClient struct {
@@ -139,6 +142,15 @@ func (c *msgClient) CreateRepresentative(ctx context.Context, in *MsgCreateRepre
 	return out, nil
 }
 
+func (c *msgClient) ShareVotingPower(ctx context.Context, in *MsgShareVotingPower, opts ...grpc.CallOption) (*MsgShareVotingPowerResponse, error) {
+	out := new(MsgShareVotingPowerResponse)
+	err := c.cc.Invoke(ctx, Msg_ShareVotingPower_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
@@ -165,6 +177,8 @@ type MsgServer interface {
 	CancelProposal(context.Context, *MsgCancelProposal) (*MsgCancelProposalResponse, error)
 	// CreateRepresentative defines a method for creating a new representative.
 	CreateRepresentative(context.Context, *MsgCreateRepresentative) (*MsgCreateRepresentativeResponse, error)
+	// ShareVotingPower defines a method for creating a new representative.
+	ShareVotingPower(context.Context, *MsgShareVotingPower) (*MsgShareVotingPowerResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -195,6 +209,9 @@ func (UnimplementedMsgServer) CancelProposal(context.Context, *MsgCancelProposal
 }
 func (UnimplementedMsgServer) CreateRepresentative(context.Context, *MsgCreateRepresentative) (*MsgCreateRepresentativeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRepresentative not implemented")
+}
+func (UnimplementedMsgServer) ShareVotingPower(context.Context, *MsgShareVotingPower) (*MsgShareVotingPowerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ShareVotingPower not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -353,6 +370,24 @@ func _Msg_CreateRepresentative_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_ShareVotingPower_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgShareVotingPower)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).ShareVotingPower(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_ShareVotingPower_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).ShareVotingPower(ctx, req.(*MsgShareVotingPower))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -391,6 +426,10 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateRepresentative",
 			Handler:    _Msg_CreateRepresentative_Handler,
+		},
+		{
+			MethodName: "ShareVotingPower",
+			Handler:    _Msg_ShareVotingPower_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

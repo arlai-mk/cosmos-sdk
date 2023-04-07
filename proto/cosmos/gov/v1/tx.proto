@@ -46,6 +46,9 @@ service Msg {
 
   // CreateRepresentative defines a method for creating a new representative.
   rpc CreateRepresentative(MsgCreateRepresentative) returns (MsgCreateRepresentativeResponse);
+
+  // ShareVotingPower defines a method for sharing a delegator's voting power among representatives.
+  rpc ShareVotingPower(MsgShareVotingPower) returns (MsgShareVotingPowerResponse);
 }
 
 // MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
@@ -220,3 +223,14 @@ message MsgCreateRepresentative {
 
 // MsgCreateRepresentativeResponse defines the Msg/CreateRepresentative response type.
 message MsgCreateRepresentativeResponse {}
+
+// MsgShareVotingPower defines a SDK message for a delegator to share its voting power to representatives.
+message MsgShareVotingPower {
+  option (cosmos.msg.v1.signer) = "delegator_address";
+
+  string voting_power_shares = 1;
+  string delegator_address  = 2 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+}
+
+// MsgShareVotingPowerResponse defines the Msg/ShareVotingPower response type.
+message MsgShareVotingPowerResponse {}

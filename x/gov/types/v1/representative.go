@@ -18,7 +18,7 @@ const (
 	MaxDetailsLength  = 280
 )
 
-// ValidatorI expected validator functions
+// RepresentativeI expected representative functions
 type RepresentativeI interface {
 	GetMoniker() string            // moniker of the representative
 	GetRepAddress() sdk.AccAddress // account address of the representative

@@ -232,7 +232,7 @@ func (k msgServer) UpdateParams(goCtx context.Context, msg *v1.MsgUpdateParams) 
 func (k msgServer) CreateRepresentative(goCtx context.Context, msg *v1.MsgCreateRepresentative) (*v1.MsgCreateRepresentativeResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	// TODO: Write code for when we create a representative here
+	// TODO: Remove the error message (used for debug)
 	k.Logger(ctx).Error(
 		"We are creating a new representative",
 		"address", msg.RepresentativeAddress,
@@ -271,6 +271,39 @@ func (k msgServer) CreateRepresentative(goCtx context.Context, msg *v1.MsgCreate
 	k.SetRepresentativeIDByAddr(ctx, representativeID, representative)
 
 	return &v1.MsgCreateRepresentativeResponse{}, nil
+}
+
+func (k msgServer) ShareVotingPower(goCtx context.Context, msg *v1.MsgShareVotingPower) (*v1.MsgShareVotingPowerResponse, error) {
+	ctx := sdk.UnwrapSDKContext(goCtx)
+
+	// validate intents (aggregated errors)
+	vpSharesBasic, err := v1.VPSharesFromString(msg.VotingPowerShares)
+	if err != nil {
+		return nil, err
+	}
+
+	// This will also make sure that the representatives exist
+	vpSharesFinal, err := k.convertVPSharesBasicToFinal(ctx, vpSharesBasic)
+	if err != nil {
+		return nil, err
+	}
+
+	vpDelShares := v1.VotingPowerDelShares{
+		DelegatorAddress: msg.DelegatorAddress,
+		VpShare:          vpSharesFinal,
+	}
+
+	// Remove the Voting Power from current representatives and add back to Validators
+	vpRepChanges, err := k.calculateVPRepChanges(ctx, sdk.AccAddress(msg.DelegatorAddress), vpDelShares)
+
+	k.applyVPRepChanges(ctx, vpRepChanges)
+
+	// Store the vpDelShares to the store
+	k.SetVotingPowerDelShares(ctx, vpDelShares)
+
+	// Also needs to update the voting power of each representative accordingly
+
+	return &v1.MsgShareVotingPowerResponse{}, nil
 }
 
 type legacyMsgServer struct {
