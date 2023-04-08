@@ -341,6 +341,122 @@ func (q Keeper) Representative(c context.Context, req *v1.QueryRepresentativeReq
 	return &v1.QueryRepresentativeResponse{Representative: &representative}, nil
 }
 
+func (q Keeper) DelegatorVotingPowerShares(
+	c context.Context,
+	req *v1.QueryDelegatorVotingPowerSharesRequest,
+) (*v1.QueryDelegatorVotingPowerSharesResponse, error) {
+
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "empty request")
+	}
+
+	if req.DelegatorAddr == "" {
+		return nil, status.Error(codes.InvalidArgument, "delegator address cannot be empty")
+	}
+
+	delegator, err := sdk.AccAddressFromBech32(req.DelegatorAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	ctx := sdk.UnwrapSDKContext(c)
+
+	vpShares, found := q.GetVotingPowerDelShares(ctx, delegator)
+	if !found {
+		return nil, status.Errorf(codes.NotFound, "voting power shares for delegator %s not found", req.DelegatorAddr)
+	}
+
+	return &v1.QueryDelegatorVotingPowerSharesResponse{VotingPowerShares: &vpShares}, nil
+}
+
+func (q Keeper) RepresentativeValidatorVotingPower(
+	c context.Context,
+	req *v1.QueryRepresentativeValidatorVotingPowerRequest,
+) (*v1.QueryRepresentativeValidatorVotingPowerResponse, error) {
+
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "empty request")
+	}
+
+	if req.RepresentativeAddr == "" {
+		return nil, status.Error(codes.InvalidArgument, "representative address cannot be empty")
+	}
+
+	if req.ValidatorAddr == "" {
+		return nil, status.Error(codes.InvalidArgument, "validator address cannot be empty")
+	}
+
+	repAddr, err := sdk.AccAddressFromBech32(req.RepresentativeAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	valAddr, err := sdk.ValAddressFromBech32(req.ValidatorAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	ctx := sdk.UnwrapSDKContext(c)
+
+	vpRep, found := q.GetVotingPowerRep(ctx, repAddr, valAddr)
+	if !found {
+		return nil, status.Errorf(codes.NotFound, "no voting power for representative %s over validator %s", req.RepresentativeAddr, req.ValidatorAddr)
+	}
+
+	return &v1.QueryRepresentativeValidatorVotingPowerResponse{RepVotingPower: &vpRep}, nil
+}
+
+func (q Keeper) RepresentativeVotingPowers(
+	c context.Context,
+	req *v1.QueryRepresentativeVotingPowersRequest,
+) (*v1.QueryRepresentativeVotingPowersResponse, error) {
+
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "invalid request")
+	}
+
+	if req.RepresentativeAddr == "" {
+		return nil, status.Error(codes.InvalidArgument, "representative address cannot be empty")
+	}
+
+	repAddr, err := sdk.AccAddressFromBech32(req.RepresentativeAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	ctx := sdk.UnwrapSDKContext(c)
+
+	representativeID, found := q.GetRepresentativeIDByAddr(ctx, repAddr)
+
+	if !found {
+		return nil, status.Errorf(codes.NotFound, "representative with address %s not found", req.RepresentativeAddr)
+	}
+
+	var repVotingPowers []*v1.VotingPowerRep
+
+	store := ctx.KVStore(q.storeKey)
+	repVotingPowerStore := prefix.NewStore(store, types.VotingPowersKey(representativeID))
+
+	pageRes, err := query.Paginate(repVotingPowerStore, req.Pagination, func(key []byte, value []byte) error {
+		var repVotingPower v1.VotingPowerRep
+		if err := q.cdc.Unmarshal(value, &repVotingPower); err != nil {
+			return err
+		}
+
+		repVotingPowers = append(repVotingPowers, &repVotingPower)
+		return nil
+	})
+
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	return &v1.QueryRepresentativeVotingPowersResponse{
+		RepVotingPower: repVotingPowers,
+		Pagination:     pageRes,
+	}, nil
+}
+
 var _ v1beta1.QueryServer = legacyQueryServer{}
 
 type legacyQueryServer struct {

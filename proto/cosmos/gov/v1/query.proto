@@ -261,6 +261,9 @@ message QueryRepresentativeResponse {
 message QueryRepresentativeVotingPowersRequest {
   // representative_addr defines the representative address to query for.
   string representative_addr = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  // pagination defines an optional pagination for the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
 }
 
 // QueryRepresentativeVotingPowersReponse is response type for the Query/RepresentativeVotingPowers RPC method

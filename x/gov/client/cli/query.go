@@ -41,6 +41,9 @@ func GetQueryCmd() *cobra.Command {
 		GetCmdConstitution(),
 		GetCmdQueryRepresentative(),
 		GetCmdQueryRepresentatives(),
+		GetCmdQueryRepresentativeVotingPowers(),
+		GetCmdQueryRepresentativeValidatorVotingPower(),
+		GetCmdQueryDelegatorVotingPowerShares(),
 	)
 
 	return govQueryCmd
@@ -761,6 +764,161 @@ $ %s query gov representatives
 
 	flags.AddQueryFlagsToCmd(cmd)
 	flags.AddPaginationFlagsToCmd(cmd, "representatives")
+
+	return cmd
+}
+
+// GetCmdQueryRepresentativeVotingPowers implements the query all voting power among validators for a representative command.
+func GetCmdQueryRepresentativeVotingPowers() *cobra.Command {
+	bech32PrefixAddr := sdk.GetConfig().GetBech32AccountAddrPrefix()
+
+	cmd := &cobra.Command{
+		Use:   "representative-voting-powers [representative-addr]",
+		Short: "Query for all voting power info of a representative",
+		Long: strings.TrimSpace(
+			fmt.Sprintf(`Query all voting power details about an individual representative.
+
+Example:
+$ %s query gov representative-voting-powers %s1gghjut3ccd8ay0zduzj64hwre2fxs9ldmqhffj
+`,
+				version.AppName, bech32PrefixAddr,
+			),
+		),
+		Args: cobra.ExactArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientQueryContext(cmd)
+			if err != nil {
+				return err
+			}
+			queryClient := v1.NewQueryClient(clientCtx)
+			pageReq, err := client.ReadPageRequest(cmd.Flags())
+			if err != nil {
+				return err
+			}
+
+			addr, err := sdk.AccAddressFromBech32(args[0])
+			if err != nil {
+				return err
+			}
+
+			params := &v1.QueryRepresentativeVotingPowersRequest{
+				RepresentativeAddr: addr.String(),
+				Pagination:         pageReq,
+			}
+
+			result, err := queryClient.RepresentativeVotingPowers(cmd.Context(), params)
+			if err != nil {
+				return err
+			}
+
+			return clientCtx.PrintProto(result)
+		},
+	}
+
+	flags.AddQueryFlagsToCmd(cmd)
+	flags.AddPaginationFlagsToCmd(cmd, "representative-voting-powers")
+
+	return cmd
+}
+
+// GetCmdQueryRepresentativeValidatorVotingPower implements the query of voting power of a representative over a validator command.
+func GetCmdQueryRepresentativeValidatorVotingPower() *cobra.Command {
+	bech32PrefixAddr := sdk.GetConfig().GetBech32AccountAddrPrefix()
+	bech32ValPrefixAddr := sdk.GetConfig().GetBech32ValidatorAddrPrefix()
+
+	cmd := &cobra.Command{
+		Use:   "representative-voting-power [representative-addr] [validator-addr]",
+		Args:  cobra.ExactArgs(2),
+		Short: "Query for voting power of a representative for a specific validator",
+		Long: strings.TrimSpace(
+			fmt.Sprintf(`Query amount of voting power a representative has over a specific validator
+Example:
+$ %s query gov representative-voting-power %s1gghjut3ccd8ay0zduzj64hwre2fxs9ldmqhffj %s1skjwj5whet0lpe65qaq4rpq03hjxlwd9nf39lk
+`,
+				version.AppName,
+				bech32PrefixAddr,
+				bech32ValPrefixAddr,
+			),
+		),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientQueryContext(cmd)
+			if err != nil {
+				return err
+			}
+			queryClient := v1.NewQueryClient(clientCtx)
+
+			repAddr, err := sdk.AccAddressFromBech32(args[0])
+			if err != nil {
+				return err
+			}
+
+			valAddr, err := sdk.ValAddressFromBech32(args[1])
+			if err != nil {
+				return err
+			}
+
+			params := &v1.QueryRepresentativeValidatorVotingPowerRequest{
+				RepresentativeAddr: repAddr.String(),
+				ValidatorAddr:      valAddr.String(),
+			}
+			res, err := queryClient.RepresentativeValidatorVotingPower(cmd.Context(), params)
+			if err != nil {
+				return err
+			}
+
+			return clientCtx.PrintProto(res.RepVotingPower)
+		},
+	}
+
+	flags.AddQueryFlagsToCmd(cmd)
+
+	return cmd
+}
+
+// GetCmdQueryDelegatorVotingPowerShares implements the query of voting power shares (weights) for a delegator across representatives
+// Note: should we name it voting power weights
+func GetCmdQueryDelegatorVotingPowerShares() *cobra.Command {
+	bech32PrefixAddr := sdk.GetConfig().GetBech32AccountAddrPrefix()
+
+	cmd := &cobra.Command{
+		Use:   "delegator-voting-power-shares [delegator-addr]",
+		Short: "Query for the representatives and their voting power weight for a delegator",
+		Long: strings.TrimSpace(
+			fmt.Sprintf(`Query all representatives a delegator delegates their voting power to, as well as their voting power weight.
+
+Example:
+$ %s query gov delegator-voting-power-shares %s1gghjut3ccd8ay0zduzj64hwre2fxs9ldmqhffj
+`,
+				version.AppName, bech32PrefixAddr,
+			),
+		),
+		Args: cobra.ExactArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientQueryContext(cmd)
+			if err != nil {
+				return err
+			}
+			queryClient := v1.NewQueryClient(clientCtx)
+
+			addr, err := sdk.AccAddressFromBech32(args[0])
+			if err != nil {
+				return err
+			}
+
+			params := &v1.QueryDelegatorVotingPowerSharesRequest{
+				DelegatorAddr: addr.String(),
+			}
+
+			res, err := queryClient.DelegatorVotingPowerShares(cmd.Context(), params)
+			if err != nil {
+				return err
+			}
+
+			return clientCtx.PrintProto(res.VotingPowerShares)
+		},
+	}
+
+	flags.AddQueryFlagsToCmd(cmd)
 
 	return cmd
 }

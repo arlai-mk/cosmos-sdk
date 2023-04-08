@@ -3,6 +3,7 @@ package keeper
 import (
 	"fmt"
 
+	storetypes "cosmossdk.io/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	v1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
@@ -258,4 +259,64 @@ func (keeper Keeper) applyVPRepChanges(ctx sdk.Context, vpRepChanges []v1.Voting
 
 		store.Set(govtypes.VotingPowerKey(representativeID, sdk.ValAddress(vpRepChange.ValidatorAddress)), bz)
 	}
+}
+
+// GetVotingPowerRep retrieves the Voting Power of a representative over a validator
+func (k Keeper) GetVotingPowerRep(ctx sdk.Context, repAddr sdk.AccAddress, valAddr sdk.ValAddress) (vpRep v1.VotingPowerRep, found bool) {
+
+	representativeID, found := k.GetRepresentativeIDByAddr(ctx, repAddr)
+	if !found {
+		return vpRep, false
+	}
+
+	store := ctx.KVStore(k.storeKey)
+
+	value := store.Get(govtypes.VotingPowerKey(representativeID, valAddr))
+	if value == nil {
+		return vpRep, false
+	}
+
+	vpRep = v1.MustUnmarshalVotingPowerRep(k.cdc, value)
+	return vpRep, true
+}
+
+// SetVotingPowerRep sets the Voting Power of a representative over a validator in the store
+func (k Keeper) SetVotingPowerRep(ctx sdk.Context, vpRep v1.VotingPowerRep) error {
+
+	store := ctx.KVStore(k.storeKey)
+
+	bz := v1.MustMarshalVotingPowerRep(k.cdc, &vpRep)
+	store.Set(govtypes.VotingPowerKey(vpRep.RepresentativeId, sdk.ValAddress(vpRep.ValidatorAddress)), bz)
+
+	return nil
+}
+
+// get the set of all representative voting power across validators with no limits, used during genesis dump
+func (k Keeper) GetAllRepVotingPowers(ctx sdk.Context) (repVotingPowers []*v1.VotingPowerRep) {
+	store := ctx.KVStore(k.storeKey)
+
+	iterator := storetypes.KVStorePrefixIterator(store, govtypes.VotingPowersKeyPrefix)
+	defer iterator.Close()
+
+	for ; iterator.Valid(); iterator.Next() {
+		vpRep := v1.MustUnmarshalVotingPowerRep(k.cdc, iterator.Value())
+		repVotingPowers = append(repVotingPowers, &vpRep)
+	}
+
+	return repVotingPowers
+}
+
+// get the set of all delegators voting power shares across representatives with no limits, used during genesis dump
+func (k Keeper) GetAllDelVPShares(ctx sdk.Context) (delVPShares []*v1.VotingPowerDelShares) {
+	store := ctx.KVStore(k.storeKey)
+
+	iterator := storetypes.KVStorePrefixIterator(store, govtypes.VotingPowerSharesKeyPrefix)
+	defer iterator.Close()
+
+	for ; iterator.Valid(); iterator.Next() {
+		delVPShare := v1.MustUnmarshalVotingPowerDelShares(k.cdc, iterator.Value())
+		delVPShares = append(delVPShares, &delVPShare)
+	}
+
+	return delVPShares
 }
